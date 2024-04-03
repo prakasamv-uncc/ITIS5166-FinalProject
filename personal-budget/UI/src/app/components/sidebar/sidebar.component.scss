@@ -1,0 +1,45 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 300;
+
+  .nav-text {
+    vertical-align: middle;
+    margin-left: 10px;
+  }
+}
+
+.vertical-navbar {
+  width: 150px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  background-color: white;
+  box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.2);
+
+  h1 {
+    padding-left: 20px;
+    font-weight: 400;
+    color: black;
+  }
+
+  ul li {
+    padding: 10px 0;
+    padding-left: 20px;
+
+    a {
+      text-decoration: none;
+      color: black;
+      display: block;
+    }
+
+    fa {
+      margin-right: 10px;
+      /* spacing between icon and text */
+    }
+  }
+}
