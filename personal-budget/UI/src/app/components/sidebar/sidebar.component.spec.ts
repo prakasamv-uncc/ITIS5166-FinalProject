@@ -1,14 +1,27 @@
-import { Component } from '@angular/core';
-import { faBookmark, faChartBar, faComment, faHome, faUser } from '@fortawesome/free-solid-svg-icons';
-@Component({
-selector: 'app-sidebar',
-templateUrl: './sidebar.component.html',
-styleUrls: ['./sidebar.component.css'],
-})
-export class SidebarComponent {
-home = faHome;
-chart = faChartBar;
-message = faComment;
-bookmark = faBookmark;
-user = faUser;
-}
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SidebarComponent } from './sidebar.component';
+
+describe('SidebarComponent', () => {
+  let component: SidebarComponent;
+  let fixture: ComponentFixture<SidebarComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [SidebarComponent]
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(SidebarComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  // Add more test cases here
+
+});

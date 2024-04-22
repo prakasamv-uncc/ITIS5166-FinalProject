@@ -1,24 +1,27 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DashboardComponent } from './dashboard.component';
 
+describe('DashboardComponent', () => {
+  let component: DashboardComponent;
+  let fixture: ComponentFixture<DashboardComponent>;
 
-import { Component } from '@angular/core';
-import {
-faPen,
-faPlus,
-faMoneyBill,
-faUsers,
-faClock,
-faBriefcase,
-} from '@fortawesome/free-solid-svg-icons';
-@Component({
-selector: 'app-dashboard',
-templateUrl: './dashboard.component.html',
-styleUrls: ['./dashboard.component.css'],
-})
-export class DashboardComponent {
-edit = faPen;
-create = faPlus;
-budget = faMoneyBill;
-project = faUsers;
-time = faClock;
-work = faBriefcase;
-}
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [DashboardComponent]
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(DashboardComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  // Add more test cases here
+
+});

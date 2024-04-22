@@ -5,3 +5,42 @@
     background-image: var(--#{$variable-prefix}gradient);
   }
 }
+
+
+
+@media (min-width: 1200px) {
+  .container {
+    // Your styles for min-width: 1200px here
+    max-width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    // Your styles for min-width: 992px here
+    max-width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    // Your styles for min-width: 768px here
+    max-width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    // Your styles for min-width: 576px here
+    max-width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+

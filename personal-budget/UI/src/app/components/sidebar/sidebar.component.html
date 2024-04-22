@@ -1,81 +1,70 @@
+<!-- <mat-sidenav-container >
+    <mat-sidenav >
+      <mat-form-field>
+        <mat-label>Month</mat-label>
+        <mat-select placeholder="Select Month">
+          @for (year of yearsList; track year) {
+          <mat-option [value]="year">{{ year }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-nav-list>
+        @for (nav of fillerNav; track nav) {
+        <a mat-list-item >{{ nav }}</a>
+        }
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-container>
+ -->
 
-<nav class="vertical-navbar">
-  <h1>year</h1>
-  <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      2024
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="#">2023</a></li>
-      <li><a class="dropdown-item" href="#">2022</a></li>
-      <li><a class="dropdown-item" href="#">2021</a></li>
-      <li><a class="dropdown-item" href="#">2020</a></li>
-      <li><a class="dropdown-item" href="#">2019</a></li>
-    </ul>
+
+
+<!--
+  <mat-sidenav #sidenav mode="side" opened class="example-sidenav"
+               fixedInViewport="true" fixedTopGap="65"
+               fixedBottomGap="0">
+
+    <mat-form-field color="primary">
+      <mat-label>Month</mat-label>
+      <mat-select placeholder="Select Month">
+        @for (year of yearsList; track year) {
+        <mat-option [value]="year">{{ year }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <mat-nav-list>
+      @for (nav of fillerNav; track nav) {
+      <a mat-list-item >{{ nav }}</a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+
+ -->
+
+ <div class="col-auto col-md-2 col-xl-2 px-sm-2 px-0 bg-dark" aria-label="Side Nav bg-dark">
+  <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+    <div class="dropdown pb-4">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <!-- <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle"> -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+          </svg>
+          <span class="d-none d-sm-inline mx-1">Year</span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+        @for (year of yearsList; track year) {
+          <li><a class="dropdown-item" >{{ year }}</a></li>
+          }
+      </ul>
   </div>
-  <ul>
-      <li>
-          <a href="#">
-              <span class="nav-text">Jan</span>
-          </a>
-      </li>
-      <li>
-          <a href="#">
-              <span class="nav-text">Feb</span>
-          </a>
-      </li>
-      <li>
-          <a href="#">
-              <span class="nav-text">Mar</span>
-          </a>
-      </li>
-      <li>
-          <a href="#">
-              <span class="nav-text">Apr</span>
-          </a>
-      </li>
-      <li>
-        <a href="#">
-            <span class="nav-text">May</span>
-        </a>
-    </li>
-    <li>
-      <a href="#">
-          <span class="nav-text">Jun</span>
-      </a>
-  </li>
-  <li>
-    <a href="#">
-        <span class="nav-text">Jul</span>
-    </a>
-  </li>
-  <li>
-    <a href="#">
-        <span class="nav-text">Aug</span>
-    </a>
-  </li>
-  <li>
-    <a href="#">
-        <span class="nav-text">Sep</span>
-    </a>
-    </li>
-    <li>
-      <a href="#">
-          <span class="nav-text">Oct</span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-          <span class="nav-text">Nov</span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-          <span class="nav-text">Dec</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+      <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
 
+        @for (nav of fillerNav; track nav) {
+          <li class="nav-item"><a class="nav-link align-middle px-0" >{{ nav }}</a></li>
+          }
 
+      </ul>
+      <hr>
 
+  </div>
+</div>

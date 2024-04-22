@@ -3,6 +3,7 @@
         "autorestart",
         "boostrap",
         "fontawesome",
-        "fortawesome"
+        "fortawesome",
+        "snav"
     ]
 }

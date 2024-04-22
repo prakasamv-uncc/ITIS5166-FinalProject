@@ -1,35 +1,68 @@
- <!-- Login Form -->
- <div class="container login">
-  <div class="row justify-content-center mt-5">
-    <div class="col-lg-4 col-md-6 col-sm-6">
-      <div class="card shadow">
-        <div class="card-title text-center border-bottom">
-          <h2 class="p-3">Login</h2>
-        </div>
-        <div class="card-body">
-          <form>
-            <div class="mb-4">
-              <label for="username" class="form-label">Username/Email</label>
-              <input type="text" class="form-control" id="username" />
-            </div>
-            <div class="mb-4">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" />
-            </div>
-            <div class="mb-4">
-              <a href="#" class="text-decoration-none">Forgot Password?</a>
-              <a routerLink="../signup"  class="float-end text-decoration-none cursor-pointer ">Sign Up</a>
-            </div>
-            <div class="mb-4">
-              <input type="checkbox" class="form-check-input" id="remember" />
-              <label for="remember" class="form-label">Remember Me</label>
-            </div>
-            <div class="d-grid">
-              <button type="submit" class="btn text-light main-bg">Login</button>
-            </div>
-          </form>
-        </div>
+<div class="col-md-12">
+  <div class="card card-container">
+    <img
+      id="profile-img"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      class="profile-img-card"
+    />
+    @if (!isLoggedIn) {
+    <form
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          [(ngModel)]="form.username"
+          required
+          #username="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
+        />
+        @if (username.errors && f.submitted) {
+        <div class="invalid-feedback">Username is required!</div>
+        }
       </div>
-    </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+        />
+        @if (password.errors && f.submitted) {
+        <div class="invalid-feedback">
+          @if (password.errors['required']) {
+          <div>Password is required</div>
+          }
+          @if (password.errors['minlength']) {
+          <div>Password must be at least 6 characters</div>
+          }
+        </div>
+        }
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">Login</button>
+      </div>
+      <div class="form-group">
+        @if (f.submitted && isLoginFailed) {
+        <div class="alert alert-danger" role="alert">
+          Login failed: {{ errorMessage }}
+        </div>
+        }
+      </div>
+    </form>
+    } @else {
+    <div class="alert alert-success">Logged in as {{ roles }}.</div>
+    }
   </div>
 </div>
