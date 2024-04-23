@@ -1,53 +1,37 @@
+// main framework
+@import 'scss/settings/preset-variables';
+@import './../node_modules/bootstrap/scss/functions';
+@import './../node_modules/bootstrap/scss/variables';
+$pc-body-bg: map-get($preset-colors, 'preset-1', 'body');
+$pc-blue: map-get($preset-colors, 'preset-1', 'primary');
+$pc-secondary: map-get($preset-colors, 'preset-1', 'secondary');
+@import 'scss/settings/custom-variables';
+@import 'scss/settings/theme-variables';
 
-@use "@angular/material" as mat;
+@import './../node_modules/bootstrap/scss/bootstrap';
+@import './../node_modules/bootstrap/scss/utilities';
+@import './../node_modules/bootstrap/scss/utilities/api';
 
-@include mat.core();
+// main framework
+@import 'scss/themes/generic';
+@import 'scss/themes/general';
 
-$my-app-primary: mat.define-palette(mat.$indigo-palette);
-$my-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$my-app-warn: mat.define-palette(mat.$red-palette);
+// menu
+@import 'scss/menu/menu-lite';
 
-$my-app-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $my-app-primary,
-      accent: $my-app-accent,
-      warn: $my-app-warn,
-    ),
-  )
-);
+// Layouts
+@import 'scss/themes/layouts/layouts.scss';
 
-@include mat.all-component-themes($my-app-theme);
+// Componants
+@import 'scss/themes/components/components';
 
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+// pages
+@import 'scss/themes/pages/page';
 
-
-$primary: mat.define-palette(mat.$indigo-palette);
-$accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-$warn: mat.define-palette(mat.$red-palette);
-
-
-$theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $primary,
-      accent: $accent,
-    )
-  )
-);
-
-$primary-color: mat.get-color-from-palette($primary);
-$background-color: rgb(237 237 237);
-$secondary-background-color: #f8f8f8;
+// font
+@import './scss/fonts/tabler-icons.min.css';
 
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

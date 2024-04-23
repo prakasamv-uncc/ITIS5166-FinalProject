@@ -26,7 +26,7 @@ module.exports = router;
 
 /**
  * @swagger
- * /auth/register:
+ * /v1/auth/register:
  *   post:
  *     summary: Register as user
  *     tags: [Auth]
@@ -74,7 +74,7 @@ module.exports = router;
 
 /**
  * @swagger
- * /auth/login:
+ * /v1/auth/login:
  *   post:
  *     summary: Login
  *     tags: [Auth]
@@ -122,7 +122,7 @@ module.exports = router;
 
 /**
  * @swagger
- * /auth/logout:
+ * /v1/auth/logout:
  *   post:
  *     summary: Logout
  *     tags: [Auth]
@@ -148,7 +148,7 @@ module.exports = router;
 
 /**
  * @swagger
- * /auth/refresh-tokens:
+ * /v1/auth/refresh-tokens:
  *   post:
  *     summary: Refresh auth tokens
  *     tags: [Auth]
@@ -178,7 +178,7 @@ module.exports = router;
 
 /**
  * @swagger
- * /auth/forgot-password:
+ * /v1/auth/forgot-password:
  *   post:
  *     summary: Forgot password
  *     description: An email will be sent to reset password.
@@ -206,7 +206,7 @@ module.exports = router;
 
 /**
  * @swagger
- * /auth/reset-password:
+ * /v1/auth/reset-password:
  *   post:
  *     summary: Reset password
  *     tags: [Auth]
@@ -249,7 +249,7 @@ module.exports = router;
 
 /**
  * @swagger
- * /auth/send-verification-email:
+ * /v1/auth/send-verification-email:
  *   post:
  *     summary: Send verification email
  *     description: An email will be sent to verify email.
@@ -265,7 +265,7 @@ module.exports = router;
 
 /**
  * @swagger
- * /auth/verify-email:
+ * /v1/auth/verify-email:
  *   post:
  *     summary: verify email
  *     tags: [Auth]

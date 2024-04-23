@@ -4,7 +4,7 @@ import { UserService } from '../../services/_services/user.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   content?: string;
@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getPublicContent().subscribe({
+   /*  this.userService.getPublicContent().subscribe({
       next: data => {
         this.content = data;
       },
@@ -28,6 +28,6 @@ export class HomeComponent implements OnInit {
           this.content = `Error with status: ${err.status}`;
         }
       }
-    });
+    }); */
   }
 }

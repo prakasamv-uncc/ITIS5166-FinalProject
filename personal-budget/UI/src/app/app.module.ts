@@ -12,22 +12,13 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-// material
-import {MatListModule} from '@angular/material/list';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatSelectModule} from '@angular/material/select';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatInputModule} from '@angular/material/input';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import {MatCardModule} from '@angular/material/card';
 
-import {MatGridListModule} from '@angular/material/grid-list';
 import { IncomebudgetLinechatComponent } from './components/incomebudget-linechat/incomebudget-linechat.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderUsrProfileComponent } from './components/header-usr-profile/header-usr-profile.component';
+import { NgbModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -39,23 +30,17 @@ import { IncomebudgetLinechatComponent } from './components/incomebudget-linecha
     HeaderComponent,
     SidebarComponent,
     DashboardComponent,
-    IncomebudgetLinechatComponent
+    IncomebudgetLinechatComponent,
+    FooterComponent,
+    HeaderUsrProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatSidenavModule,
-    MatFormFieldModule,
-    MatListModule,
-    MatIconModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatSelectModule,
-    MatCheckboxModule,
-    MatInputModule,MatCardModule,MatGridListModule
-
+    NgbNavModule,
+    NgbModule
   ],
   providers: [httpInterceptorProviders, provideAnimationsAsync()],
   bootstrap: [AppComponent]

@@ -1,25 +1,22 @@
-
-
- <div id="app">
   <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">bezKoder</a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home">Home </a>
+    <a href="#" class="navbar-brand">PV Personal Budget</a>
+    <ul class="navbar-nav mr-auto" >
+      <li class="nav-item" >
+        <a href="/home" routerLinkActive="active" class="nav-link"  routerLink="home">Home </a>
       </li>
       @if (showAdminBoard) {
         <li class="nav-item">
-          <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+          <a href="/admin" routerLinkActive="active" class="nav-link" routerLink="admin">Admin Board</a>
         </li>
       }
       @if (showModeratorBoard) {
         <li class="nav-item">
-          <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+          <a href="/mod" routerLinkActive="active" class="nav-link" routerLink="mod">Moderator Board</a>
         </li>
       }
       @if (isLoggedIn) {
         <li class="nav-item">
-          <a href="/user" class="nav-link" routerLink="user">User</a>
+          <a href="/user" routerLinkActive="active" class="nav-link" routerLink="user">User</a>
         </li>
       }
     </ul>
@@ -27,17 +24,18 @@
     @if (!isLoggedIn) {
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+          <a href="/register" routerLinkActive="active" class="nav-link" routerLink="register">Sign Up</a>
         </li>
         <li class="nav-item">
-          <a href="/login" class="nav-link" routerLink="login">Login</a>
+          <a href="/login" routerLinkActive="active" class="nav-link" routerLink="login">Login</a>
         </li>
       </ul>
     } @else {
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+          <a href="/profile" routerLinkActive="active" class="nav-link" routerLink="profile">{{ username }}</a>
         </li>
+        <app-header-usr-profile></app-header-usr-profile>
         <li class="nav-item">
           <a href class="nav-link" (click)="logout()">LogOut</a>
         </li>

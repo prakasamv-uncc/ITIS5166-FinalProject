@@ -27,6 +27,37 @@ export class HeaderComponent {
 
   eventBusSub?: Subscription;
 
+   // public method
+   profile = [
+    {
+      icon: 'ti ti-edit-circle',
+      title: 'Edit Profile'
+    },
+    {
+      icon: 'ti ti-user',
+      title: 'View Profile'
+    },
+    {
+      icon: 'ti ti-power',
+      title: 'Logout'
+    }
+  ];
+
+  setting = [
+    {
+      icon: 'ti ti-building-bank',
+      title: 'Add Income'
+    },
+    {
+      icon: 'ti ti-businessplan',
+      title: 'Add Budget'
+    },
+    {
+      icon: 'ti ti-cash',
+      title: 'Add Expense'
+    }
+  ];
+
   constructor(
     private storageService: StorageService,
     private authService: AuthService,
