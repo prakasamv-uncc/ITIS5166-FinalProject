@@ -1,0 +1,20 @@
+<div class="col-md-12 col-xl-4">
+  <h5 class="mb-3">Income Overview</h5>
+  <div class="card">
+    <div class="card-body">
+      <h6 class="mb-2 f-w-400 text-muted">This Week Statistics</h6>
+      <h3 class="mb-3">$7,650</h3>
+      <apx-chart
+        [series]="chartOptions_4.series || []"
+        [chart]="chartOptions_4.chart || {}"
+        [plotOptions]="chartOptions_4.plotOptions || {}"
+        [dataLabels]="chartOptions_4.dataLabels || {}"
+        [xaxis]="chartOptions_4.xaxis || {}"
+        [colors]="chartOptions_4.colors || []"
+        [stroke]="chartOptions_4.stroke"
+        [yaxis]="chartOptions_4.yaxis || {}"
+        [grid]="chartOptions_4.grid || {}"
+      ></apx-chart>
+    </div>
+  </div>
+</div>

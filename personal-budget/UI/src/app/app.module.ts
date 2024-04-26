@@ -12,13 +12,23 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {NgIdleModule} from '@ng-idle/core';
 
-import { IncomebudgetLinechatComponent } from './components/incomebudget-linechat/incomebudget-linechat.component';
+import { IncomebudgetLinechatComponent } from './components/charts/incomebudget-linechat/incomebudget-linechat.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderUsrProfileComponent } from './components/header-usr-profile/header-usr-profile.component';
-import { NgbModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule, NgbDatepickerModule, NgbModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { TimeoutModalComponent } from './components/modal/timeout-modal/timeout-modal.component';
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
+import { ExpensesByCategoryComponent } from './components/charts/expenses-by-category/expenses-by-category.component';
+import { BudgetGridComponent } from './components/grid/budget-grid/budget-grid.component';
+import { DefaultDashboardComponent } from './pages/dashboard/views/default-dashboard/default-dashboard.component';
+import { UpdateIncomeComponent } from './pages/update-income/update-income.component';
+import { JsonPipe } from '@angular/common';
+import { WeeklyoverviewComponent } from './components/charts/weeklyoverview/weeklyoverview.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -32,7 +42,13 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     DashboardComponent,
     IncomebudgetLinechatComponent,
     FooterComponent,
-    HeaderUsrProfileComponent
+    HeaderUsrProfileComponent,
+    TimeoutModalComponent,
+    ExpensesByCategoryComponent,
+    BudgetGridComponent,
+    DefaultDashboardComponent,
+    UpdateIncomeComponent,
+    WeeklyoverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +56,12 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     FormsModule,
     HttpClientModule,
     NgbNavModule,
-    NgbModule
+    NgbModule,
+    NgIdleModule.forRoot(),
+    NgIdleKeepaliveModule.forRoot(),
+    FormsModule,
+    NgbDatepickerModule, NgbAlertModule, FormsModule, JsonPipe,
+    NgApexchartsModule
   ],
   providers: [httpInterceptorProviders, provideAnimationsAsync()],
   bootstrap: [AppComponent]

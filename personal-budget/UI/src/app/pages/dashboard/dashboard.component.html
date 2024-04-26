@@ -3,9 +3,31 @@
 <app-sidebar></app-sidebar>
 </div>
 <div class="col-auto col-md-10 col-xl-10 px-sm-2 px-0 bg-light" aria-label="Main Content bg-light">
-  <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-dark min-vh-100">
+  <div class="row">
+    @for (task of card; track task) {
+      <div class="col-md-6 col-xl-3">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="mb-2 f-w-400 text-muted">{{ task.title }}</h6>
+            <h4 class="mb-3">
+              {{ task.amount }}
+              <span class="badge {{ task.background }} border {{ task.border }} "><i class="{{ task.icon }}"></i> {{ task.percentage }}</span>
+            </h4>
+            <p class="mb-0 text-muted text-sm">
+              You made an extra
+              <span class="{{ task.color }}">{{ task.number }}</span> this year
+            </p>
+          </div>
+        </div>
+      </div>
+    }
    <app-incomebudget-linechat>
     </app-incomebudget-linechat>
+    <app-weeklyoverview></app-weeklyoverview>
+    <app-expenses-by-category>
+    </app-expenses-by-category>
+    <app-budget-grid>
+    </app-budget-grid>
   </div>
 </div>
 </div>

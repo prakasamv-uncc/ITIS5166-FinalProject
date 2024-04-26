@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginComponent } from './login.component';
+import { TimeoutModalComponent } from './timeout-modal.component';
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('TimeoutModalComponent', () => {
+  let component: TimeoutModalComponent;
+  let fixture: ComponentFixture<TimeoutModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LoginComponent]
+      declarations: [TimeoutModalComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(TimeoutModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
