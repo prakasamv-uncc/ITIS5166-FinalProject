@@ -1,5 +1,4 @@
 import { Component, Directive, EventEmitter, Input, Output, QueryList, ViewChildren } from '@angular/core';
-import { DecimalPipe } from '@angular/common';
 
 interface Country {
 	id: number;

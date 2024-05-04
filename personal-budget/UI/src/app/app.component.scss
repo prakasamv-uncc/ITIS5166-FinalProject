@@ -1,6 +1,17 @@
 
 .container {
   overflow-x:hidden
+  .skip {
+    display: block;
+    line-height: 44px;
+    padding: 0 20px;
+    margin-top: -44px;
+  }
+
+  .skip:focus {
+    margin-top: 0;
+  }
+
 }
 
 @media (min-width: 1200px) {

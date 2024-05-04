@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
@@ -29,6 +29,9 @@ import { UpdateIncomeComponent } from './pages/update-income/update-income.compo
 import { JsonPipe } from '@angular/common';
 import { WeeklyoverviewComponent } from './components/charts/weeklyoverview/weeklyoverview.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
+import { UpdateBudgetComponent } from './pages/update-budget/update-budget.component';
+import { UpdateExpenseComponent } from './pages/update-expense/update-expense.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     BudgetGridComponent,
     DefaultDashboardComponent,
     UpdateIncomeComponent,
-    WeeklyoverviewComponent
+    WeeklyoverviewComponent,
+    UpdateBudgetComponent,
+    UpdateExpenseComponent,
+    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     NgIdleKeepaliveModule.forRoot(),
     FormsModule,
     NgbDatepickerModule, NgbAlertModule, FormsModule, JsonPipe,
-    NgApexchartsModule
+    NgApexchartsModule,
+    ReactiveFormsModule
   ],
   providers: [httpInterceptorProviders, provideAnimationsAsync()],
   bootstrap: [AppComponent]

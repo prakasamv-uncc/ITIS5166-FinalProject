@@ -1,22 +1,22 @@
 describe('template spec', () => {
   it('passes', () => {
-    cy.visit('https://example.cypress.io')
+    cy.visit('http://localhost:4200/')
   })
 })
 
 describe('template spec', () => {
   it('passes', () => {
      cy
-    cy.visit('https://example.cypress.io/login')
-    cy.get('input[name="username"]').type('your_username')
-    cy.get('input[name="password"]').type('your_password')
+    cy.visit('http://localhost:4200/login')
+    cy.get('input[name="email"]').type('test@test.com')
+    cy.get('input[name="password"]').type('password1')
     cy.get('button[type="submit"]').click()
     cy.url().should('include', '/dashboard')
   });
 
   it('fails', () => {
-    cy.visit('https://example.cypress.io/login')
-    cy.get('input[name="username"]').type('your_username')
+    cy.visit('http://localhost:4200/login')
+    cy.get('input[name="email"]').type('your_username')
     cy.get('input[name="password"]').type('wrong_password')
     cy.get('button[type="submit"]').click()
     cy.url().should('include', '/login')

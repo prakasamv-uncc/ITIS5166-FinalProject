@@ -1,57 +1,61 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <form #incomeForm="ngForm" (ngSubmit)="onSubmit(incomeForm)">
+      <h2> Update Income </h2>
+      <form [formGroup]="incomeForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <label for="incomeName">Income Name</label>
-          <input type="text" class="form-control" id="incomeName" placeholder="Enter income name">
+          <label for="incomeType">Income Type</label>
+          <input type="text" class="form-control" formControlName="incomeType" id="incomeType" placeholder="Enter income name">
         </div>
         <div class="form-group">
-          <label for="incomeAmount">Income Amount</label>
-          <input type="number" class="form-control" id="incomeAmount" placeholder="Enter income amount">
+          <label for="amount">Income Amount</label>
+          <input type="number" class="form-control" formControlName="amount" id="amount" placeholder="Enter income amount">
         </div>
         <div class="form-group">
-          <label for="incomeDate">Income Date</label>
+          <label for="date">Income Date</label>
           <div class="col-12">
             <div class="input-group">
               <input
                 class="form-control"
                 placeholder="yyyy-mm-dd"
                 name="dp"
-
                 ngbDatepicker
                 #d="ngbDatepicker"
+                formControlName="date"
+                id="date"
               />
-              <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+              <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"><i class="ti ti-calendar"></i></button>
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="incomeCategory">Income Category</label>
-            <!-- <input type="text" class="form-control" id="incomeCategory">
-             -->
-          <select class="form-select" id="incomeCategory">
-            for (let category of incomeCategories) {
-            <option value="{{category.id}}">{{category.name}}</option>
+          <label for="category">Income Category</label>
+          <select class="form-select" formControlName="category" id="category">
+            <option selected>Choose...</option>
+            @for (category of incomeCategory; track category.id) {
+              <option value="{{category.id}}">{{category.cname}}</option>
             }
           </select>
-
         </div>
 
-        <div class = "form-group">
-          <label for="incomeState">Income State</label>
-          <select class="form-select" id="incomeState">
-            for (let state of states) {
-            <option value="{{state.id}}">{{state.name}}</option>
-            }
-          </select>
-
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" class="form-control" formControlName="city" id="city" placeholder="Enter city">
         </div>
 
 
         <div class = "form-group">
-          <label for="incomeCountry">Income Country</label>
-          <select class="form-select" id="incomeCountry">
+          <label for="state">Income State</label>
+          <select class="form-select" formControlName="state" id="state">
+            <option selected>Choose...</option>
+            @for (state of states; track state.id) {
+              <option value="{{state.id}}">{{state.name}}</option>
+            }
+          </select>
+        </div>
+        <div class = "form-group">
+          <label for="country">Income Country</label>
+          <select class="form-select" formControlName="country" id="country">
             <option selected>Choose...</option>
             <option value="1">USA</option>
           </select>
@@ -59,8 +63,8 @@
 
 
         <div class="form-group">
-          <label for="incomeDescription">Income Description</label>
-          <textarea class="form-control" id="incomeDescription" rows="3"></textarea>
+          <label for="description">Income Description</label>
+          <textarea class="form-control" formControlName="description" id="description" rows="3"></textarea>
         </div>
         <button type="submit" class="btn btn-primary" cli>Submit</button>
       </form>

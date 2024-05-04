@@ -19,11 +19,6 @@ export class HeaderUsrProfileComponent {
     icon: 'ti ti-user',
     title: 'View Profile',
     route: '/view-profile'
-  },
-  {
-    icon: 'ti ti-power',
-    title: 'Logout',
-    route: '/logout'
   }
 ];
 

@@ -1,26 +1,12 @@
 
 <app-timeout-modal></app-timeout-modal>
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
+<div class="row">
+  <nav class="navbar navbar-expand navbar-light bg-light">
     <a href="#" class="navbar-brand">PV Personal Budget</a>
     <ul class="navbar-nav mr-auto" >
       <li class="nav-item" >
         <a href="/home" routerLinkActive="active" class="nav-link"  routerLink="home">Home </a>
       </li>
-      @if (showAdminBoard) {
-        <li class="nav-item">
-          <a href="/admin" routerLinkActive="active" class="nav-link" routerLink="admin">Admin Board</a>
-        </li>
-      }
-      @if (showModeratorBoard) {
-        <li class="nav-item">
-          <a href="/mod" routerLinkActive="active" class="nav-link" routerLink="mod">Moderator Board</a>
-        </li>
-      }
-      @if (isLoggedIn) {
-        <li class="nav-item">
-          <a href="/user" routerLinkActive="active" class="nav-link" routerLink="user">User</a>
-        </li>
-      }
     </ul>
 
     @if (!isLoggedIn) {
@@ -32,15 +18,17 @@
           <a href="/login" routerLinkActive="active" class="nav-link" routerLink="login">Login</a>
         </li>
       </ul>
-    } @else {
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a href="/profile" routerLinkActive="active" class="nav-link" routerLink="profile">{{ username }}</a>
+    }
+    @else {
+      <ul class="navbar-nav mr-auto" >
+        <li class="nav-item" >
+          <app-header-usr-profile></app-header-usr-profile>
         </li>
-        <app-header-usr-profile></app-header-usr-profile>
-        <li class="nav-item">
-          <a href class="nav-link" (click)="logout()">LogOut</a>
+        <li class="nav-item" >
+          <a href="javascript:" class="pc-head-link bg-transparent" aria-label="LogOut" (click)="logout()"><i class="ti ti-power text-danger"></i></a>
         </li>
       </ul>
     }
   </nav>
+
+</div>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { IncomeService } from '../../services/_services/income.service';
 import { Constants } from '../../services/_shared/constants';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -10,7 +10,8 @@ import { Constants } from '../../services/_shared/constants';
   styleUrl: './update-income.component.scss'
 })
 export class UpdateIncomeComponent {
-  //private model: NgbDateStruct
+  incomeForm: FormGroup;
+
 states:any;
   incomeCategory: Array<{ id: number; cname: string; }> = [
     { id: 1, cname: 'Salary' },
@@ -21,26 +22,54 @@ states:any;
 
 
 
-  constructor(private incomeService: IncomeService) {
+  constructor(private incomeService: IncomeService ) {
     this.states = Constants.USA_STATES;
+
+    this.incomeForm = new FormGroup({
+      incomeType: new FormControl(''),
+      country: new FormControl('', Validators.required),
+      state: new FormControl('', [Validators.required, Validators.nullValidator]),
+      city: new FormControl('', [Validators.required, Validators.nullValidator]),
+      amount: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      description: new FormControl(''),
+      category: new FormControl(''),
+      date: new FormControl('')
+    });
    }
 
-  onSubmit(incomeForm: any): void {
-   // const {incomeType, incomeCategory, incomeAmount, incomeDate } = this.form;
-   //  const parsDate = new Date(incomeDate.year, incomeDate.month - 1, incomeDate.day);
+  onSubmit(): void {
+
+   /*  if (this.incomeForm.invalid) {
+      return;
+    } */
+    console.log(JSON.stringify(this.incomeForm.value, null, 2));
+
+
+   const selectedDate = new Date(this.incomeForm.value.date.year, this.incomeForm.value.date.month - 1, this.incomeForm.value.date.day);
+
+
+    console.log(selectedDate.toDateString());
 const currentIncome = {
-  "incomeType": incomeForm.value.incomeType,
-  "country": incomeForm.value.country,
-  "state":  incomeForm.value.state,
-  "city": incomeForm.value.city,
-  "amount": incomeForm.value.amount,
-  "description": incomeForm.value.description,
-  "category": incomeForm.value.category,
-  "date": new Date(incomeForm.value.date.year, incomeForm.value.date.month - 1, incomeForm.value.date.day)
+  "incomeType": this.incomeForm.value.incomeType,
+  "country": this.incomeForm.value.country,
+  "state":  this.incomeForm.value.state,
+  "city": this.incomeForm.value.city,
+  "amount": this.incomeForm.value.amount,
+  "description": this.incomeForm.value.description,
+  "category": this.incomeForm.value.category,
+  "date": selectedDate.toISOString()
 }
     this.incomeService.addIncome(currentIncome).subscribe({
       next: (data:any) => {
         console.log(data);
+        if(data.status === 'success'){
+          this.incomeForm.reset();
+          this.incomeService.setNewIncomeAdded(true);
+          //this.isUpdateFailed = false;
+          //this.isSuccessful = true;
+          //this.router.navigate(['/dashboard']);
+        }
+
       },
       error: (err:any) => {
         //this.errorMessage = err.error.message;

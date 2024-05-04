@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { StorageService } from './storage.service';
+import { any } from 'cypress/types/bluebird';
 
 const AUTH_API = 'http://localhost:3000/v1/auth/';
 
@@ -12,6 +14,15 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AuthService {
+  isLoggedIn = new BehaviorSubject<boolean>(false);
+  isLoggedIn$ = this.isLoggedIn.asObservable();
+
+  setLoggedIn(isLoggedIn: boolean) {
+    this.isLoggedIn.next(isLoggedIn);
+  }
+
+
+
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<any> {
@@ -37,8 +48,8 @@ export class AuthService {
     );
   }
 
-  extendSession(): Observable<any> {
-    return this.http.post(AUTH_API + 'extend', { }, httpOptions);
+  extendSession(refreshToken:any): Observable<any> {
+    return this.http.post(AUTH_API + 'refresh-tokens', { 'refreshToken':refreshToken}, httpOptions);
   }
 
   logout(refreshToken:any): Observable<any> {

@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <h2> Update Profile </h2>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" placeholder="Enter First name">
+      </div>
+      <div class="form-group">
+        <label for="lastName">Profile Last Name</label>
+        <input type="text" class="form-control" id="lastName" placeholder="Enter Last name">
+      </div>
+      <div class="form-group">
+        <label for="email">Profile Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email">
+
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="number" class="form-control" id="phone" placeholder="Enter phone number">
+      </div>
+      <div class="form-group">
+
+        <label class="text-strong" for="address">Address</label>
+        <input type="text" name="address" formControlName="address"
+         class="form-control form-control-sm">
+
+      </div>
+
+
+      <div class="form-group">
+        <label class="text-strong" for="zip">Zip code :</label>
+        <input type="number" name="zip" id="zip" formControlName="zip"
+         class="form-control form-control-sm" >
+      </div>
+
+      <div class="form-group">
+        <label class="text-strong" for="city">city :</label>
+        <input type="text" name="city" id="city" formControlName="city"
+         class="form-control form-control-sm">
+      </div>
+
+      <div class="form-group">
+        <label for="state">State</label>
+        <select class="form-select" id="state">
+          <option selected>Choose...</option>
+          @for (state of states; track state.id) {
+          <option value="{{state.id}}">{{state.name}}</option>
+          }
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="zip">Zip Code</label>
+        <input type="number" class="form-control" id="zip" placeholder="Enter zip code">
+      </div>
+      <div class="form-group">
+        <label class="text-strong" for="country">Country :</label>
+        <select  name="country" formControlName="country" id="country"
+         class="form-control form-control-sm" >
+          <option value="">Choose a country</option>
+          <option value="USA">USA</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">Update Profile</button>
+      </div>
+      <!-- <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Change Password</h3>
+            <div class="form-group">
+              <label for="profileCurrentPassword">Profile Current Password</label>
+              <input type="password" class="form-control" id="profileCurrentPassword"
+                placeholder="Enter profile Current password">
+              <div class="form-group">
+                <label for="profileNewPassword">Profile Password</label>
+                <input type="password" class="form-control" id="profileNewPassword"
+                  placeholder="Enter profile new password">
+              </div>
+              <div class="form-group">
+                <label for="profileConfirmPassword">Profile Confirm New Password</label>
+                <input type="password" class="form-control" id="profileConfirmPassword"
+                  placeholder="Enter profile confirm password">
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block" (click)="onPasswordSubmit()">Update
+                  Password</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div> -->
+</form>
+</div>
+</div>

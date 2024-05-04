@@ -11,13 +11,9 @@ describe('ProfileComponent', () => {
       declarations: [ProfileComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(ProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

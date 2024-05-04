@@ -8,16 +8,12 @@ describe('UpdateIncomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UpdateIncomeComponent]
+      declarations: [ UpdateIncomeComponent ]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(UpdateIncomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

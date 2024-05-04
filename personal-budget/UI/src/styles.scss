@@ -31,6 +31,17 @@ $pc-secondary: map-get($preset-colors, 'preset-1', 'secondary');
 // font
 @import './scss/fonts/tabler-icons.min.css';
 
+// custom
+@import './scss/themes/pages/authentication.scss';
+@import './scss/themes/components/components.scss';
+@import './scss/themes/layouts/layouts.scss';
+
+@import './scss//settings/custom-variables.scss';
+@import './scss//settings/theme-variables.scss';
+@import './scss//settings/preset-variables.scss';
+
+
+
 
 
 /* Importing Bootstrap SCSS file. */

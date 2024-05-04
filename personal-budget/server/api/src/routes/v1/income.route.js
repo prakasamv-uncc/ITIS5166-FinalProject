@@ -3,17 +3,21 @@ const auth = require('../../middlewares/auth');
 const validate = require('../../middlewares/validate');
 const incomeValidation = require('../../validations/income.validation');
 const incomeController = require('../../controllers/income.controller');
+const validateToken = require('../../middlewares/validateToken');
+const jwtMW = require('../../middlewares/validateJWT');
 
 const router = express.Router();
 
 router
   .route('/')
-  .post(auth('manageIncomes'), validate(incomeValidation.createIncome), incomeController.createIncome)
-  .get(auth('getIncomes'), validate(incomeValidation.getIncomes), incomeController.getIncomes);
+  //.get(auth('getIncomes'), validate(incomeValidation.getIncomes), incomeController.getIncomes);
 
+router.post('/create', jwtMW, incomeController.createIncome);
+router.get('/getIncomes', jwtMW, incomeController.getIncomes);
+router.post('/getMonthTotalIncome/:year/:month', jwtMW, incomeController.getMonthTotalIncome);
 router
   .route('/:incomeId')
-  .get(auth('getIncomes'), validate(incomeValidation.getIncome), incomeController.getIncome)
+  //.get(auth('getIncomes'), validate(incomeValidation.getIncome), incomeController.getIncome)
   .patch(auth('manageIncomes'), validate(incomeValidation.updateIncome), incomeController.updateIncome)
   .delete(auth('manageIncomes'), validate(incomeValidation.deleteIncome), incomeController.deleteIncome);
 
@@ -63,7 +67,8 @@ module.exports = router;
 
 /**
  * @swagger
- * /api/incomes:
+ * URLs: http://localhost:3000/api/v1/incomes
+ * /v1/incomes:
  *   post:
  *     summary: Create a new income
  *     tags: [Incomes]

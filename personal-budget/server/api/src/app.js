@@ -40,8 +40,14 @@ app.use(compression());
 // enable cors
 //app.use(cors());
 app.use(cors({ origin: 'http://localhost:4200', credentials: true }));
+app.use(cors({ origin: 'https://fonts.googleapis.com', credentials: true }));
+app.use(cors({ origin: 'https://fonts.gstatic.com', credentials: true }));
 
 //app.options('*', cors());
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 // jwt authentication
 app.use(passport.initialize());

@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 const { toJSON, paginate } = require('./plugins');
+const autoIncrement = require('mongoose-auto-increment');
+const { required } = require('joi');
 
+autoIncrement.initialize(mongoose.connection);
 const incomeSchema = mongoose.Schema(
   {
     user: {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: 'User',
+      type: String, //mongoose.SchemaTypes.ObjectId,
       required: true,
     },
     id: {
@@ -61,10 +63,31 @@ const incomeSchema = mongoose.Schema(
 // add plugin that converts mongoose to json
 incomeSchema.plugin(toJSON);
 incomeSchema.plugin(paginate);
-
+incomeSchema.plugin(autoIncrement.plugin, { model: 'Income', field: 'id', startAt: 1, incrementBy: 1});
 /**
  * @typedef Income
  */
 const Income = mongoose.model('Income', incomeSchema);
+/*
+Income.aggregate([
+  {
+    $group: {
+      _id: {
+        date: {
+          month: { $month: "$date" },
+          year: { $year: "$date" }
+        }
+      },
+      totalIncome: { $sum: "$amount" }
+    },
+  },
+])
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((err) => {
+    console.error(err);
+  }); */
+
 
 module.exports = Income;

@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
         this.storageService.saveUser(data);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
+        this.authService.setLoggedIn(true);
         this.roles = this.storageService.getUser().roles;
         //this.reloadPage();
         this.router.navigate(['/dashboard']);

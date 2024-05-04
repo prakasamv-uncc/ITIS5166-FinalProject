@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { update } from 'cypress/types/lodash';
 
 const USER_KEY = 'auth-user';
 
@@ -8,7 +9,7 @@ const USER_KEY = 'auth-user';
 export class StorageService {
   constructor() {}
 
-  clean(): void {
+  public clean(): void {
     window.sessionStorage.clear();
   }
 
@@ -33,5 +34,29 @@ export class StorageService {
     }
 
     return false;
+  }
+
+  public getAccessToken(): string | null {
+    const user = this.getUser();
+    if (user) {
+      return user.tokens.access.token;
+    }
+
+    return null;
+  }
+
+  public getRefreshToken(): string | null {
+    const user = this.getUser();
+    if (user) {
+      return user.tokens.refresh.token;
+    }
+
+    return null;
+  }
+
+  public updateTokens(tokens: any): void {
+    const user = this.getUser();
+    user.tokens = tokens;
+    this.saveUser(user);
   }
 }

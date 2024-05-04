@@ -2,8 +2,10 @@ export class Constants{
 
   static readonly API_URL = 'http://localhost:3000/v1/';
   static readonly AUTH_API = '/auth/';
-  static readonly INCOME_API = '/incomes/';
-  static readonly EXPENSE_API = '/expenses/';
+  static readonly INCOME_API = this.API_URL+'incomes/create';
+  static readonly GET_INCOME_API = this.API_URL+'incomes/getIncomes';
+  static readonly GET_INCOME_TOTAL_BY_MONTH_API: string = this.API_URL+'incomes/getMonthTotalIncome/';
+  static readonly EXPENSE_API = this.API_URL+'/expenses/';
   static readonly USER_API = '/users/';
 
   static readonly USA_STATES: Array<{ id: number; name: string; abbreviation:string}> = [
@@ -58,6 +60,32 @@ export class Constants{
     { "id": 48, "name": "West Virginia", "abbreviation": "WV" },
     { "id": 49, "name": "Wisconsin", "abbreviation": "WI" },
     { "id": 50, "name": "Wyoming", "abbreviation": "WY" }
+  ];
+
+  static readonly BUDGET_CATEGORIES: Array<{ id: number; bname: string; }> = [
+    { id: 1, bname: 'Mortgage' },
+    { id: 2, bname: 'Insurance' },
+    { id: 3, bname: 'Repairs' },
+    { id: 4, bname: 'Services' },
+    { id: 5, bname: 'Utilities' },
+    { id: 6, bname: 'Taxes' },
+    { id: 7, bname: 'Groceries' },
+    { id: 8, bname: 'Entertainment' },
+    { id: 9, bname: 'Child Care' },
+    { id: 10, bname: 'Transportation' },
+    { id: 11, bname: 'Health Care' },
+    { id: 12, bname: 'Personal Care' },
+    { id: 13, bname: 'Clothing' },
+    { id: 14, bname: 'Education' },
+    { id: 15, bname: 'Donations' },
+    { id: 16, bname: 'Savings' },
+    { id: 17, bname: 'Investments' },
+    { id: 18, bname: 'Retirement' },
+    { id: 19, bname: 'Debt' },
+    { id: 20, bname: 'Gifts' },
+    { id: 21, bname: 'Travel' },
+    { id: 22, bname: 'Pets' },
+    { id: 23, bname: 'Other' }
   ];
 
 }

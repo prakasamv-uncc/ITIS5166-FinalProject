@@ -4,7 +4,6 @@ import ApexCharts from 'apexcharts';
 import {
   ApexAxisChartSeries,
   ApexChart,
-  ChartComponent,
   ApexDataLabels,
   ApexPlotOptions,
   ApexXAxis,
@@ -201,15 +200,15 @@ constructor() {
 
 // life cycle event
 ngOnInit(): void {
-  setTimeout(() => {
+  /* setTimeout(() => {
     this.weekChart = new ApexCharts(document.querySelector('#visitor-chart'), this.weekOptions);
     this.weekChart.render();
-  }, 500);
+  }, 500); */
 }
 
 // public method
 onNavChange(changeEvent: NgbNavChangeEvent) {
-  if (changeEvent.nextId === 1) {
+ /*  if (changeEvent.nextId === 1) {
     setTimeout(() => {
       this.weekChart = new ApexCharts(document.querySelector('#visitor-chart'), this.weekOptions);
       this.weekChart.render();
@@ -221,7 +220,7 @@ onNavChange(changeEvent: NgbNavChangeEvent) {
       this.monthChart = new ApexCharts(document.querySelector('#visitor-chart-1'), this.monthOptions);
       this.monthChart.render();
     }, 200);
-  }
+  } */
 }
 
 monthOptions = {

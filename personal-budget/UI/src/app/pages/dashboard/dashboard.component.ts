@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { IncomeService } from '../../services/_services/income.service';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent {
-  constructor() { }
+export class DashboardComponent implements OnInit {
+  constructor(private incomeService:IncomeService) { }
 
   card = [
     {
@@ -49,5 +51,24 @@ export class DashboardComponent {
       number: '$20,395'
     }
   ];
+
+  ngOnInit(): void {
+    this.incomeService.getIncome().subscribe((data) => {
+      console.log(data);
+    });
+
+    const getCurrentYear = new Date().getFullYear();
+    console.log(getCurrentYear);
+    const getCurrentMonth = new Date().getMonth()+1;
+    console.log(getCurrentMonth);
+
+    const range = {
+      'year': getCurrentYear,
+      'month': getCurrentMonth
+    }
+    this.incomeService.getIncomeTotalByMonth(range).subscribe((data) => {
+      console.log(data);
+    });
+  }
 
 }

@@ -6,6 +6,10 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UpdateIncomeComponent } from './pages/update-income/update-income.component';
+import { update } from 'cypress/types/lodash';
+import { UpdateBudgetComponent } from './pages/update-budget/update-budget.component';
+import { UpdateExpenseComponent } from './pages/update-expense/update-expense.component';
+import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 
 
 const routes: Routes = [
@@ -15,6 +19,9 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'update-income', component: UpdateIncomeComponent },
+  { path: 'update-budget', component: UpdateBudgetComponent },
+  { path: 'update-expense', component: UpdateExpenseComponent },
+  { path: 'update-profile', component: UpdateProfileComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

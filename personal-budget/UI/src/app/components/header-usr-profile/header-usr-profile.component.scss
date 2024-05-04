@@ -1,0 +1,45 @@
+.list-unstyled {
+  margin-bottom: 0;
+  display: inline-flex;
+
+.pc-h-item {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+ .header-user-profile  {
+  width: auto;
+  padding: 7px;
+  background: transparent;
+}
+.pc-head-link {
+  margin: 0 16px;
+  position: relative;
+  font-weight: 500;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 4px;
+  color: #141414;
+  background: #e6ebf1;
+}
+
+.pc-head-link img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+}
+
+a {
+  color: #141414;
+  text-decoration: none;
+}
+
+
+}

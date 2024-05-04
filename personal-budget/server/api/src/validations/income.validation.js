@@ -1,6 +1,7 @@
 const Joi = require('joi');
 
 const createIncome = {
+  token: Joi.string(),
   body: Joi.object().keys({
     id: Joi.string().required(),
     incomeType: Joi.string().required(),

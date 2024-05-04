@@ -11,6 +11,38 @@ const userService = require('./user.service');
 const createIncome = async (incomeBody) => {
   return Income.create(incomeBody);
 };
+const getIncomeTotalByMonth = async (userId, month, year) => {
+ // const userId = await userService.getUserById(user);
+  if (!userId) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Income not found');
+  }
+  const incomes = await Income.aggregate([
+    {
+      $match: {
+        userId: userId,
+        date: {
+          $gte: new Date(year, month - 1, 1),
+          $lte: new Date(year, month, 0)
+        }
+      }
+    },
+    {
+      $group: {
+        _id: null,
+        totalAmount: { $sum: '$amount' }
+      }
+    }
+  ]);
+  return incomes[0] ? incomes[0].totalAmount : 0;
+};
+
+
+
+
+
+/**
+ *
+ */
 
 /**
  * Query for incomes
@@ -80,4 +112,5 @@ module.exports = {
   getIncomeById,
   updateIncomeById,
   deleteIncomeById,
+  getIncomeTotalByMonth
 };
