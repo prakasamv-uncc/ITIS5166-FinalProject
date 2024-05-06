@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Validators } from '@angular/forms';
-import { FormArray } from '@angular/forms';
+import { FormBuilder} from '@angular/forms';
 import { Constants } from '../../services/_shared/constants';
 
 

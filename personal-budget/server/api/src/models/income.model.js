@@ -64,6 +64,7 @@ const incomeSchema = mongoose.Schema(
 incomeSchema.plugin(toJSON);
 incomeSchema.plugin(paginate);
 incomeSchema.plugin(autoIncrement.plugin, { model: 'Income', field: 'id', startAt: 1, incrementBy: 1});
+//incomeSchema.plugin(mongoose.Aggregate());
 /**
  * @typedef Income
  */

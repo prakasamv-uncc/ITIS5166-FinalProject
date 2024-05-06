@@ -1,0 +1,12 @@
+h2 {
+  font-size: 1.5rem;
+  margin: auto 0;
+  padding: 1rem;
+  text-align: center;
+}
+.form-container {
+  display: grid;
+  grid-template-rows: auto auto; /* Two rows: one for label, one for input */
+  gap: 10px; /* Adjust the gap as needed */
+}
+

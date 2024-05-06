@@ -24,6 +24,15 @@ const getBudget = catchAsync(async (req, res) => {
   res.send(budget);
 });
 
+
+const getMonthTotalBudget = catchAsync(async (req, res) => {
+  const budget = await budgetService.getMonthTotalBudget(req.params.year, req.params.month);
+  if (!budget) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Budget not found');
+  }
+  res.send(budget);
+});
+
 const updateBudget = catchAsync(async (req, res) => {
   const budget = await budgetService.updateBudgetById(req.params.budgetId, req.body);
   res.send(budget);
@@ -39,5 +48,6 @@ module.exports = {
   getBudgets,
   getBudget,
   updateBudget,
+  getMonthTotalBudget,
   deleteBudget,
 };

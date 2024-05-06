@@ -1,17 +1,17 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <form #budgetForm="ngForm" (ngSubmit)="onSubmit(budgetForm)">
+      <form [formGroup]="budgetForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <label for="budgetName">Budget Name</label>
-          <input type="text" class="form-control" id="budgetName" placeholder="Enter budget name">
+          <label for="budgetType">Budget Name</label>
+          <input type="text" class="form-control" formControlName="budgetType" id="budgetType" placeholder="Enter budget name">
         </div>
         <div class="form-group">
-          <label for="budgetAmount">Budget Amount</label>
-          <input type="number" class="form-control" id="budgetAmount" placeholder="Enter budget amount">
+          <label for="amount">Budget Amount</label>
+          <input type="number" class="form-control" formControlName="amount" id="amount" placeholder="Enter Planned amount">
         </div>
         <div class="form-group">
-          <label for="budgetDate">Budget Date</label>
+          <label for="date">Date</label>
           <div class="col-12">
             <div class="input-group">
               <input
@@ -19,17 +19,19 @@
                 placeholder="yyyy-mm-dd"
                 name="dp"
                 ngbDatepicker
+                formControlName="date"
+                id="date"
                 #d="ngbDatepicker"
               />
               <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button">
-                <i class="ti ti-calendar"></i>      
+                <i class="ti ti-calendar"></i>
               </button>
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="budgetCategory">Budget Category</label>
-          <select class="form-select" id="budgetCategory">
+          <label for="category">Budget Category</label>
+          <select class="form-select" id="category" formControlName="category">
             <option selected>Choose...</option>
             @for (category of budgetCategory; track category.id) {
               <option value="{{category.id}}">{{category.bname}}</option>
@@ -37,23 +39,31 @@
           </select>
         </div>
         <div class = "form-group">
-          <label for="budgetState">Budget State</label>
-          <select class="form-select" id="budgetState">
+          <label for="state">Planned State</label>
+          <select class="form-select" id="state">
             <option selected>Choose...</option>
             @for (state of states; track state.id) {
               <option value="{{state.id}}">{{state.name}}</option>
             }
           </select>
         </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" class="form-control" formControlName="city" id="city" placeholder="Enter Planned city">
+        </div>
         <div class = "form-group">
-          <label for="budgetCountry">Budget Country</label>
-          <select class="form-select" id="budgetCountry">
+          <label for="country">Budget Country</label>
+          <select class="form-select" id="country"  formControlName="country">
             <option selected>Choose...</option>
             <option value="1">USA</option>
           </select>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block">Update Budget</button>
+          <label for="description">Budget Description</label>
+          <textarea class="form-control" formControlName="description" id="description" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block" >Update Budget</button>
         </div>
       </form>
     </div>

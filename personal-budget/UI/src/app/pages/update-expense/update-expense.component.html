@@ -35,3 +35,35 @@
               <option value="{{category.id}}">{{category.ename}}</option>
             }
           </select>
+        </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" class="form-control" id="city" placeholder="Enter city">
+        </div>
+        <div class = "form-group">
+          <label for="state">Expense State</label>
+          <select class="form-select" id="state">
+            <option selected>Choose...</option>
+            @for (state of states; track state.id) {
+              <option value="{{state.id}}">{{state.name}}</option>
+            }
+          </select>
+        </div>
+        <div class = "form-group">
+          <label for="country">Country</label>
+          <select class="form-select" id="country"  formControlName="country">
+            <option selected>Choose...</option>
+            <option value="1">USA</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" formControlName="description" id="description" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+

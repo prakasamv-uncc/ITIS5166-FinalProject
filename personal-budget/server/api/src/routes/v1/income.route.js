@@ -68,7 +68,7 @@ module.exports = router;
 /**
  * @swagger
  * URLs: http://localhost:3000/api/v1/incomes
- * /v1/incomes:
+ * /incomes:
  *   post:
  *     summary: Create a new income
  *     tags: [Incomes]

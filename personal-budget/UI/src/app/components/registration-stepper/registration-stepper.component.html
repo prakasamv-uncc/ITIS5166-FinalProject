@@ -1,0 +1,282 @@
+<h2>New User Registration</h2>
+<mat-stepper [linear]="!isLinear" #stepper>
+  <mat-step [stepControl]="registrationForm">
+    <form [formGroup]="registrationForm">
+      <ng-template matStepLabel>Personal Information</ng-template>
+      <div class="form-container">
+        <mat-label>Username</mat-label>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Username"
+            formControlName="name"
+            required
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-container">
+        <mat-label>Email</mat-label>
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email" />
+        </mat-form-field>
+      </div>
+      <div class="form-container">
+        <mat-label>Password</mat-label>
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-container">
+        <mat-label>Confirm Password</mat-label>
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            placeholder="Confirm Password"
+            formControlName="confirmPassword"
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-container">
+        <button
+          mat-button
+          matStepperNext
+          (click)="onRegistrationSubmit(stepper)"
+          [disabled]="registrationForm.invalid"
+          mat-flat-button
+          color="primary"
+        >
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="addIncomeForm" label="Fill out your Initial Income">
+    <form [formGroup]="addIncomeForm">
+      <div class="form-group">
+        <label for="incomeType">Income Type</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="incomeType"
+          id="incomeType"
+          placeholder="Enter income name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="amount">Income Amount</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="amount"
+          id="amount"
+          placeholder="Enter income amount"
+        />
+      </div>
+      <div class="form-group">
+        <label for="date">Income Date</label>
+        <div class="col-12">
+          <div class="input-group">
+            <input
+              class="form-control"
+              placeholder="yyyy-mm-dd"
+              name="dp"
+              ngbDatepicker
+              #d="ngbDatepicker"
+              formControlName="date"
+              id="date"
+            />
+            <button
+              class="btn btn-outline-secondary bi bi-calendar3"
+              (click)="d.toggle()"
+              type="button"
+            >
+              <i class="ti ti-calendar"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="category">Income Category</label>
+        <select class="form-select" formControlName="category" id="category">
+          <option selected>Choose...</option>
+          @for (category of incomeCategory; track category.id) {
+            <option value="{{ category.id }}">{{ category.cname }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="city">City</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="city"
+          id="city"
+          placeholder="Enter city"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="state">Income State</label>
+        <select class="form-select" formControlName="state" id="state">
+          <option selected>Choose...</option>
+          @for (state of states; track state.id) {
+            <option value="{{ state.id }}">{{ state.name }}</option>
+          }
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="country">Income Country</label>
+        <select class="form-select" formControlName="country" id="country">
+          <option selected>Choose...</option>
+          <option value="1">USA</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Income Description</label>
+        <textarea
+          class="form-control"
+          formControlName="description"
+          id="description"
+          rows="3"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          cli
+          [disabled]="addIncomeForm.invalid"
+          mat-flat-button
+          color="primary"
+        >
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="addBudgetForm" label="Fill out your Initial Budget">
+    <form [formGroup]="addBudgetForm">
+      <div class="form-group">
+        <label for="budgetType">Budget Name</label>
+        <input type="text" class="form-control" formControlName="budgetType" id="budgetType" placeholder="Enter budget name">
+      </div>
+      <div class="form-group">
+        <label for="amount">Budget Amount</label>
+        <input type="number" class="form-control" formControlName="amount" id="amount" placeholder="Enter Planned amount">
+      </div>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <div class="col-12">
+          <div class="input-group">
+            <input
+              class="form-control"
+              placeholder="yyyy-mm-dd"
+              name="dp"
+              ngbDatepicker
+              formControlName="date"
+              id="date"
+              #d="ngbDatepicker"
+            />
+            <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button">
+              <i class="ti ti-calendar"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="category">Budget Category</label>
+        <select class="form-select" id="category" formControlName="category">
+          <option selected>Choose...</option>
+          @for (category of budgetCategory; track category.id) {
+            <option value="{{category.id}}">{{category.bname}}</option>
+          }
+        </select>
+      </div>
+      <div class = "form-group">
+        <label for="state">Planned State</label>
+        <select class="form-select" id="state">
+          <option selected>Choose...</option>
+          @for (state of states; track state.id) {
+            <option value="{{state.id}}">{{state.name}}</option>
+          }
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" class="form-control" formControlName="city" id="city" placeholder="Enter Planned city">
+      </div>
+      <div class = "form-group">
+        <label for="country">Budget Country</label>
+        <select class="form-select" id="country"  formControlName="country">
+          <option selected>Choose...</option>
+          <option value="1">USA</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="description">Budget Description</label>
+        <textarea class="form-control" formControlName="description" id="description" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit"
+        class="btn btn-primary"
+        cli
+        [disabled]="addBudgetForm.invalid"
+        mat-flat-button
+        color="primary" >Next</button>
+      </div>
+    </form>
+  </mat-step>
+<!--
+  <mat-step
+    [stepControl]="addExpenseForm"
+    label="Fill out your Initial Expense"
+  >
+    <form [formGroup]="addExpenseForm" >
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Expense Type"
+          formControlName="expenseType"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Expense Amount" formControlName="amount" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Expense Date" formControlName="date" />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Expense Category"
+          formControlName="category"
+        />
+      </mat-form-field>
+      <button  type="submit"
+      class="btn btn-primary"
+      cli
+      [disabled]="addExpenseForm.invalid"
+      mat-flat-button
+      color="primary">Next</button>
+    </form>
+  </mat-step> -->
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now registered!</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>

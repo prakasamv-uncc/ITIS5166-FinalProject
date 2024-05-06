@@ -1,6 +1,21 @@
 
 .container {
-  overflow-x:hidden
+  overflow-x:hidden;
+
+  a {
+    display: block;
+    padding: 0 20px;
+    line-height: 44px;
+    font-size: 1.4em;
+    text-decoration: none;
+    margin: 0;
+  }
+
+  footer {
+    height: 50px;
+    background-color: #b4c6f0;
+    padding: 40px;
+  }
   .skip {
     display: block;
     line-height: 44px;

@@ -2,7 +2,6 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { DEFAULT_INTERRUPTSOURCES, Idle } from '@ng-idle/core';
 import { AppService } from './services/_services/app.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TimeoutModalComponent } from './components/modal/timeout-modal/timeout-modal.component';
 import { StorageService } from './services/_services/storage.service';
 import { Keepalive } from '@ng-idle/keepalive';
 import { AuthService } from './services/_services/auth.service';
@@ -17,16 +16,16 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'UI';
   idleState = 'Not started.';
   timedOut = false;
-  private numberOfSeconds: number = 20;
+  public numberOfSeconds: number = 20;
   refreshToken: any;
   constructor(
-    private _idle: Idle,
-    private appService: AppService,
-    private authService: AuthService,
-    private modalService: NgbModal,
-    private storageService: StorageService,
-    private keepalive: Keepalive,
-    private router: Router,
+    public _idle: Idle,
+    public appService: AppService,
+    public authService: AuthService,
+    public modalService: NgbModal,
+    public storageService: StorageService,
+    public keepalive: Keepalive,
+    public router: Router,
   ) {}
 
   ngOnInit() {

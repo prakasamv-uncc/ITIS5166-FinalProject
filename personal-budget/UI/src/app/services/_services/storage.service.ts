@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { update } from 'cypress/types/lodash';
 
 const USER_KEY = 'auth-user';
 

@@ -2,9 +2,17 @@ export class Constants{
 
   static readonly API_URL = 'http://localhost:3000/v1/';
   static readonly AUTH_API = '/auth/';
+  static readonly GET_INCOMPLETE_ONBOARDING_API = this.API_URL+'incomplete-onboarding/getIncompleteOnboarding';
   static readonly INCOME_API = this.API_URL+'incomes/create';
   static readonly GET_INCOME_API = this.API_URL+'incomes/getIncomes';
   static readonly GET_INCOME_TOTAL_BY_MONTH_API: string = this.API_URL+'incomes/getMonthTotalIncome/';
+  static readonly CREATE_BUDGET_API = this.API_URL+'budgets/create';
+  static readonly GET_BUDGET_API = this.API_URL+'budgets/getBudgets';
+  static readonly GET_BUDGET_TOTAL_BY_MONTH_API = this.API_URL+'budgets/getMonthTotalBudget/';
+  static readonly GET_EXPENSE_API = this.API_URL+'expenses/getExpenses';
+  static readonly CREATE_EXPENSE_API = this.API_URL+'expenses/create';
+  static readonly GET_EXPENSE_TOTAL_BY_MONTH_API = this.API_URL+'expenses/getMonthTotalExpense/';
+  static readonly UPDATE_EXPENSE_API = this.API_URL+'expenses/update/';
   static readonly EXPENSE_API = this.API_URL+'/expenses/';
   static readonly USER_API = '/users/';
 
@@ -62,6 +70,12 @@ export class Constants{
     { "id": 50, "name": "Wyoming", "abbreviation": "WY" }
   ];
 
+  static readonly INCOME_CATEGORIES: Array<{ id: number; cname: string; }> = [
+    { id: 1, cname: 'Salary' },
+    { id: 2, cname: 'Bonus' },
+    { id: 3, cname: 'Investment' },
+    { id: 4, cname: 'Other' }
+  ];
   static readonly BUDGET_CATEGORIES: Array<{ id: number; bname: string; }> = [
     { id: 1, bname: 'Mortgage' },
     { id: 2, bname: 'Insurance' },

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Constants } from '../../services/_shared/constants';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BudgetService } from '../../services/_services/budget.service';
 
 @Component({
   selector: 'app-update-budget',
@@ -7,6 +9,7 @@ import { Constants } from '../../services/_shared/constants';
   styleUrl: './update-budget.component.scss'
 })
 export class UpdateBudgetComponent {
+  budgetForm: FormGroup;
   budgetCategory: Array<{ id: number; bname: string; }> = [
     { id: 1, bname: 'Mortgage' },
     { id: 2, bname: 'Insurance' },
@@ -34,22 +37,41 @@ export class UpdateBudgetComponent {
   ];
   states: any;
 
-  constructor() {
+  constructor(private budgetService: BudgetService) {
     this.states = Constants.USA_STATES;
+    this.budgetForm = new FormGroup({
+      budgetType: new FormControl('', Validators.required),
+      category: new FormControl('', Validators.required),
+      country: new FormControl('', Validators.required),
+      state: new FormControl('', [Validators.required, Validators.nullValidator]),
+      city: new FormControl('', [Validators.required, Validators.nullValidator]),
+      amount: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      description: new FormControl(''),
+      date: new FormControl('')
+    });
   }
 
-  onSubmit(budgetForm: any): void {
-    const selectedDate = new Date(budgetForm.value.date.year, budgetForm.value.date.month - 1, budgetForm.value.date.day);
+  onSubmit(): void {
+    const selectedDate = new Date(this.budgetForm.value.date.year, this.budgetForm.value.date.month - 1, this.budgetForm.value.date.day);
     console.log(selectedDate);
     const currentBudget = {
-      "category": budgetForm.value.category,
-      "amount": budgetForm.value.amount,
-      "description": budgetForm.value.description,
-      "date": new Date(budgetForm.value.date.year, budgetForm.value.date.month - 1, budgetForm.value.date.day),
-      "country": budgetForm.value.country,
-      "state": budgetForm.value.state,
-      "city": budgetForm.value.city
+      "category": this.budgetForm.value.category,
+      "amount": this.budgetForm.value.amount,
+      "description": this.budgetForm.value.description,
+      "date": selectedDate.toISOString(),
+      "country": this.budgetForm.value.country,
+      "state": this.budgetForm.value.state,
+      "city": this.budgetForm.value.city
     }
     console.log(currentBudget);
+
+    this.budgetService.addBudget(currentBudget).subscribe({
+      next: (data: any) => {
+        console.log(data);
+      },
+      error: (error: any) => {
+        console.log(error);
+      }
+    });
   }
 }

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { StorageService } from './storage.service';
 import { any } from 'cypress/types/bluebird';
 
 const AUTH_API = 'http://localhost:3000/v1/auth/';

@@ -22,6 +22,7 @@ const getMonthTotalIncome = catchAsync(async (req, res) => {
   res.send({ totalIncome });
 });
 
+
 const getIncomes = catchAsync(async (req, res) => {
   const filter = pick(req.query, [
     'id',

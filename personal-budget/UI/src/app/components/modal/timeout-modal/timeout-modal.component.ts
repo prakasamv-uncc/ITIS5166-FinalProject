@@ -74,8 +74,11 @@ export class TimeoutModalComponent {
           //this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
           this.closeResult = `Dismissed`;
           const refereshToken = this.storageService.getUser()?.tokens?.refresh;
+          if (!refereshToken) {
+            this.resetSession();
+          }
           this.authService
-            .logout(refereshToken.token)
+            .logout(refereshToken?.token)
             .subscribe({
               next: (res) => {
                 console.log(res);
@@ -125,6 +128,7 @@ export class TimeoutModalComponent {
     console.log('close' + ' : ');
 
     console.log(this.userData);
+   // this.resetSession();
 /*
     this.authService.logout(this.userData?.tokens?.refresh?.token).subscribe({
       next: (res) => {
@@ -174,6 +178,7 @@ export class TimeoutModalComponent {
 
       if (seconds == 0) {
         console.log('finished');
+
         clearInterval(this.timerInterval);
         this.cancelModal();
       }

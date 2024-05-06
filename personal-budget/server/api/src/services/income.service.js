@@ -18,22 +18,30 @@ const getIncomeTotalByMonth = async (userId, month, year) => {
   }
   const incomes = await Income.aggregate([
     {
-      $match: {
-        userId: userId,
-        date: {
+      /* $match: {
+        //userId: userId,
+        createdAt: {
+      //    $eq: [{ $month: {$toDate:'$createdAt'} }, month]
+       // },
+       // date: {
           $gte: new Date(year, month - 1, 1),
           $lte: new Date(year, month, 0)
         }
-      }
-    },
-    {
+      } */
+
       $group: {
-        _id: null,
-        totalAmount: { $sum: '$amount' }
-      }
+        _id: {
+          date: {
+            month: { $month: "$date" },
+            year: { $year: "$date" }
+          }
+        },
+        totalIncome: { $sum: "$amount" }
+      },
     }
   ]);
-  return incomes[0] ? incomes[0].totalAmount : 0;
+  //return incomes[0] ? incomes[0].totalAmount : 0;
+  return incomes;
 };
 
 

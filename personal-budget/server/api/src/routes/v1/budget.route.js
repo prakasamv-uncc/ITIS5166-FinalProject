@@ -3,14 +3,18 @@ const auth = require('../../middlewares/auth');
 const validate = require('../../middlewares/validate');
 const budgetValidation = require('../../validations/budget.validation');
 const budgetController = require('../../controllers/budget.controller');
+const jwtMW = require('../../middlewares/validateJWT');
 
 const router = express.Router();
 
 router
   .route('/')
-  .post(auth('manageBudgets'), validate(budgetValidation.createBudget), budgetController.createBudget)
-  .get(auth('getBudgets'), validate(budgetValidation.getBudgets), budgetController.getBudgets);
+  //.post(auth('manageBudgets'), validate(budgetValidation.createBudget), budgetController.createBudget)
+  //.get(auth('getBudgets'), validate(budgetValidation.getBudgets), budgetController.getBudgets);
 
+router.post('/create', jwtMW, budgetController.createBudget);
+router.get('/getBudgets', jwtMW, budgetController.getBudgets);
+router.post('/getMonthTotalBudget/:year/:month', jwtMW, budgetController.getMonthTotalBudget);
 router
   .route('/:budgetId')
   .get(auth('getBudgets'), validate(budgetValidation.getBudget), budgetController.getBudget)

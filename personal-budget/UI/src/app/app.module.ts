@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, importProvidersFrom } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -32,6 +32,12 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 import { UpdateBudgetComponent } from './pages/update-budget/update-budget.component';
 import { UpdateExpenseComponent } from './pages/update-expense/update-expense.component';
+import {VERSION as MAT_VERSION, MatNativeDateModule} from '@angular/material/core';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatButtonModule} from '@angular/material/button';
+import { RegistrationStepperComponent } from './components/registration-stepper/registration-stepper.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +60,8 @@ import { UpdateExpenseComponent } from './pages/update-expense/update-expense.co
     WeeklyoverviewComponent,
     UpdateBudgetComponent,
     UpdateExpenseComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    RegistrationStepperComponent
   ],
   imports: [
     BrowserModule,
@@ -68,9 +75,15 @@ import { UpdateExpenseComponent } from './pages/update-expense/update-expense.co
     FormsModule,
     NgbDatepickerModule, NgbAlertModule, FormsModule, JsonPipe,
     NgApexchartsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatStepperModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
-  providers: [httpInterceptorProviders, provideAnimationsAsync()],
+  providers: [httpInterceptorProviders, provideAnimationsAsync(), importProvidersFrom(MatNativeDateModule)],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
