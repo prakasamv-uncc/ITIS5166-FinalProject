@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/pages/update-income/update-income.component.scss"],
+  "sourcesContent": [".container {\r\n  margin-top: 20px;\r\n\r\n}\r\n"],
+  "mappings": ";AAAA,CAAA;AACE,cAAA;;",
+  "names": []
+}
