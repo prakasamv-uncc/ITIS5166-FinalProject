@@ -1,7 +1,11 @@
 /* @use "./../../../styles"; */
+
+
 nav {
   margin:  0 12px;
   padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
   background-color: linear-gradient(to top, #1d1a1a 0%, rgba(0, 0, 0, 0.35) 99%, rgba(12, 12, 12, 0.5) 100%);
   box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
   .active {
@@ -9,5 +13,21 @@ nav {
   font-weight: bold;
   border-bottom: solid 2px #000000e6;
 }
+.row {
+   width: 100%;
+  padding: 5px;;
+
+   .dis-flex {
+     display: flex;
+
+     width: 100%;
+   }
+
+   .profile{
+    flex-direction: row-reverse;
+    align-items: center;
+   }
+}
+
 }
 

@@ -12,7 +12,7 @@
             <img src="../../../../assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar wid-35" />
           </div>
           <div class="flex-grow-1 ms-3">
-            <h6 class="mb-1">{{userName}}</h6>
+            <h4 class="mb-1">{{userName}}</h4>
           </div>
           <a href="javascript:" class="pc-head-link bg-transparent"><i class="ti ti-power text-danger"></i></a>
         </div>
@@ -48,5 +48,8 @@
       <div [ngbNavOutlet]="nav"></div>
     </div>
   </li>
+
+  <li class="nav-item align-center">
+    <a href="javascript:" class="pc-head-link bg-transparent" aria-label="LogOut" (click)="logout()" ><i class="ti ti-power text-danger"></i></a>
 </ul>
-<!-- [Mobile Media Block end] -->
+<!-- [Mobile Media Block end]  -->

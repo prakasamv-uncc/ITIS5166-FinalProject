@@ -24,17 +24,21 @@ export class IncomeService {
     this.newIncomeAdded.next(isAdded);
   }
 
+  setHeaderOptions(){
+    const user = this.storageService.getUser();
+    this.httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'authorization':'Bearer '+ user?.tokens?.access?.token})
+    };
+  }
+
   getIncome(): Observable<any> {
     return this.http.get(Constants.GET_INCOME_API, this.httpOptions);
   }
 
   getIncomeTotalByMonth(range:any): Observable<any> {
-    const income:any = {};
-    //income.user = this.storageService.getUser();
-    income.userId = this.storageService.getUser().user.id;
-///getMonthTotalIncome/:year/:month
+    const bodyData = { userId: this.storageService.getUser().user.id }; // Replace with your actual data
 
-    return this.http.post(Constants.GET_INCOME_TOTAL_BY_MONTH_API+'year='+range.year+'/month='+range.month,income, this.httpOptions);
+    return this.http.post(Constants.GET_INCOME_TOTAL_BY_MONTH_API+range.year+'/'+range.month,bodyData, this.httpOptions);
   }
 
   addIncome(income: any): Observable<any> {

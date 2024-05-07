@@ -6,7 +6,11 @@ const { budgetService } = require('../services');
 
 const createBudget = catchAsync(async (req, res) => {
   const budget = await budgetService.createBudget(req.body);
-  res.status(httpStatus.CREATED).send(budget);
+  res.status(httpStatus.CREATED).send({'status':httpStatus.CREATED,'message':'success','data':budget});
+  res.status(httpStatus.EXPECTATION_FAILED).send({'status':httpStatus.EXPECTATION_FAILED, 'message':'The request was unsuccessful. Please try again later.'});
+  res.status(httpStatus.INTERNAL_SERVER_ERROR).send({'status':httpStatus.INTERNAL_SERVER_ERROR, 'message':'The server encountered an error while processing your request.'});
+  res.status(httpStatus.UNAUTHORIZED).send({'status':httpStatus.UNAUTHORIZED, 'message':'You are not authorized to access this resource.'});
+  res.status(httpStatus.NOT_FOUND).send({'status':httpStatus.NOT_FOUND, 'message':'The requested resource was not found.'}  );
 });
 
 const getBudgets = catchAsync(async (req, res) => {

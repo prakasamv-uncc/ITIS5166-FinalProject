@@ -13,6 +13,7 @@ import { Constants } from '../../services/_shared/constants';
 import { IncomeService } from '../../services/_services/income.service';
 import { BudgetService } from '../../services/_services/budget.service';
 import { ExpenseService } from '../../services/_services/expense.service';
+import { StorageService } from '../../services/_services/storage.service';
 
 @Component({
   selector: 'app-registration-stepper',
@@ -92,6 +93,7 @@ export class RegistrationStepperComponent {
     private incomeService: IncomeService,
     private budgetService: BudgetService,
     private expenseService: ExpenseService,
+    private storageService: StorageService,
   ) {
     this.states = Constants.USA_STATES;
     this.incomeCategory = Constants.INCOME_CATEGORIES;
@@ -128,6 +130,9 @@ export class RegistrationStepperComponent {
           console.log(data);
           this.isSuccessful = true;
           this.isSignUpFailed = false;
+
+          this.storageService.saveUser(data);
+          this.authService.setLoggedIn(true);
           //stepper.next();
         },
         error: (err: any) => {
@@ -182,7 +187,7 @@ export class RegistrationStepperComponent {
     });
   }
 
-  onBudgetSubmit(): void {
+  onAddBudgetSubmit(): void {
     console.log(this.addBudgetForm.value);
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth()-1;

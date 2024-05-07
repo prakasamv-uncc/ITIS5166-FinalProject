@@ -17,8 +17,8 @@ import { RegistrationStepperComponent } from './components/registration-stepper/
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
- /*  { path: 'register', component: RegisterComponent }, */
- { path: 'register', component: RegistrationStepperComponent},
+  { path: 'register', component: RegisterComponent },
+/*  { path: 'register', component: RegistrationStepperComponent}, */
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   { path: 'dashboard', component: DashboardComponent , canActivate: [AuthGuard]},
   { path: 'add-income', component: UpdateIncomeComponent , canActivate: [AuthGuard] },

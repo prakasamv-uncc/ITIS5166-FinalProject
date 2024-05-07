@@ -5,7 +5,7 @@ const { toJSON, paginate } = require('./plugins');
 const budgetSchema = mongoose.Schema(
   {
     user: {
-      type: mongoose.SchemaTypes.ObjectId,
+      type: String, //mongoose.SchemaTypes.ObjectId,
       ref: 'User',
       required: true,
     },

@@ -12,6 +12,26 @@ const createBudget = async (budgetBody) => {
   return Budget.create(budgetBody);
 };
 
+const getMonthTotalBudget = async (year, month) => {
+  const budgets = await Budget.aggregate([
+    {
+      $match: {
+        date: {
+          $gte: new Date(year, month - 1, 1),
+          $lt: new Date(year, month, 0),
+        },
+      },
+    },
+    {
+      $group: {
+        _id: null,
+        totalBudget: { $sum: '$amount' },
+      },
+    },
+  ]);
+  return budgets[0] ? budgets[0].totalBudget : 0;
+}
+
 /**
  * Query for budgets
  * @param {Object} filter - Mongo filter

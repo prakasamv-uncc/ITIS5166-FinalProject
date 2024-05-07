@@ -4,8 +4,7 @@ const { toJSON, paginate } = require('./plugins');
 const expenseSchema = mongoose.Schema(
   {
     user: {
-      type: mongoose.SchemaTypes.ObjectId,
-      ref: 'User',
+      type: String, //mongoose.SchemaTypes.ObjectId,
       required: true,
     },
     amount: {

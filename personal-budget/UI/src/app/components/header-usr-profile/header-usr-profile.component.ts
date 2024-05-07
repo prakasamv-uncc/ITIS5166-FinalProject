@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { StorageService } from '../../services/_services/storage.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/_services/auth.service';
 
 @Component({
   selector: 'app-header-usr-profile',
@@ -40,7 +42,7 @@ setting = [
   }
 ];
 
-constructor(private storageService: StorageService) {
+constructor(private storageService: StorageService, private authService: AuthService, private router: Router) {
 
 }
 
@@ -52,4 +54,23 @@ ngOnInit() {
       this.userName = userData.user.name;}
 
 }
+
+
+logout(): void {
+  const user = this.storageService.getUser();
+  console.log(user);
+  this.authService.logout(user?.tokens?.refresh?.token).subscribe({
+    next: res => {
+      console.log(res);
+      this.storageService.clean();
+      this.authService.setLoggedIn(false);
+      this.router.navigate(['/login']);
+      //window.location.reload();
+    },
+    error: err => {
+      console.log(err);
+    }
+  });
+}
+
 }

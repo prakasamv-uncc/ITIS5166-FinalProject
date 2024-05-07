@@ -67,7 +67,14 @@ export class UpdateBudgetComponent {
 
     this.budgetService.addBudget(currentBudget).subscribe({
       next: (data: any) => {
-        console.log(data);
+        if (data) {
+          console.log(data);
+          if (data.message === 'success') {
+            console.log('Budget updated successfully');
+            this.budgetForm.reset();
+            this.budgetService.setNewBudgetAdded(true);
+          } // Add this closing brace
+        }
       },
       error: (error: any) => {
         console.log(error);

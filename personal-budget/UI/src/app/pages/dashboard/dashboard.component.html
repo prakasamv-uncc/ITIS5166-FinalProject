@@ -4,23 +4,71 @@
 </div>
 <div class="col-auto col-md-10 col-xl-10 px-sm-2 px-0 bg-light" aria-label="Main Content bg-light">
   <div class="row">
-    @for (task of card; track task) {
+  <!--   //@for (task of card; track task) { -->
       <div class="col-md-6 col-xl-3">
         <div class="card">
           <div class="card-body">
-            <h6 class="mb-2 f-w-400 text-muted">{{ task.title }}</h6>
+            <h6 class="mb-2 f-w-400 text-muted">Total Income (Monthly)</h6>
             <h4 class="mb-3">
-              {{ task.amount }}
-              <span class="badge {{ task.background }} border {{ task.border }} "><i class="{{ task.icon }}"></i> {{ task.percentage }}</span>
+              ${{ totalMonthlyIncome }}
+              <span class="badge bg-light-primary border border-primary "><i class="ti ti-trending-up"></i> {{ monthlyIncomeRatio }}%</span>
             </h4>
             <p class="mb-0 text-muted text-sm">
               You made an extra
-              <span class="{{ task.color }}">{{ task.number }}</span> this year
+              <span class="text-primary">{{monthlyIncomeRatio }}</span> this year
             </p>
           </div>
         </div>
       </div>
-    }
+
+      <div class="col-md-6 col-xl-3">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="mb-2 f-w-400 text-muted">Total Expense (Monthly)</h6>
+            <h4 class="mb-3">
+              ${{ totalMonthlyExpense }}
+              <span class="badge bg-light-success border border-success"><i class="ti ti-trending-up"></i> {{ monthlyExpenseRatio }}%</span>
+            </h4>
+            <p class="mb-0 text-muted text-sm">
+              You made an extra
+              <span class="text-success">{{ monthlyExpenseRatio}}%</span> this year
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="mb-2 f-w-400 text-muted">Total Savings (Monthly)</h6>
+            <h4 class="mb-3">
+              ${{ totalMonthlySavings}}
+              <span class="badge bg-light-warning border border-warning"><i class="ti ti-trending-down'"></i> {{ monthlySavingsRatio }}</span>
+            </h4>
+            <p class="mb-0 text-muted text-sm">
+              You made an extra
+              <span class="text-warning">{{ monthlySavingsRatio }}%</span> this year
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-xl-3">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="mb-2 f-w-400 text-muted">Total Budget (Monthly)</h6>
+            <h4 class="mb-3">
+              ${{ totalMonthlyBudget }}
+              <span class="badge bg-light-danger  border border-danger "><i class="ti ti-trending-down"></i> {{ monthlyBudgetRatio }}</span>
+            </h4>
+            <p class="mb-0 text-muted text-sm">
+              You made an extra
+              <span class="text-danger">{{ monthlyBudgetRatio }}%</span> this year
+            </p>
+          </div>
+        </div>
+      </div>
+    <!-- //} -->
    <app-incomebudget-linechat>
     </app-incomebudget-linechat>
     <app-weeklyoverview></app-weeklyoverview>

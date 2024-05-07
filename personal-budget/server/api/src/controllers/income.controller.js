@@ -16,7 +16,8 @@ const createIncome = catchAsync(async (req, res) => {
 
 
 const getMonthTotalIncome = catchAsync(async (req, res) => {
-  const { month, year } = req.params;
+  const year  = parseInt(req.params.year);
+  const month = parseInt(req.params.month);
   const userId = req.body.userId;
   const totalIncome = await incomeService.getIncomeTotalByMonth(userId, month, year);
   res.send({ totalIncome });

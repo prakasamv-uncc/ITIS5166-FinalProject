@@ -62,18 +62,15 @@ const currentIncome = {
     this.incomeService.addIncome(currentIncome).subscribe({
       next: (data:any) => {
         console.log(data);
-        if(data.status === 'success'){
+        if(data.message === 'success'){
+          console.log('Income added successfully');
           this.incomeForm.reset();
           this.incomeService.setNewIncomeAdded(true);
-          //this.isUpdateFailed = false;
-          //this.isSuccessful = true;
-          //this.router.navigate(['/dashboard']);
         }
 
       },
       error: (err:any) => {
-        //this.errorMessage = err.error.message;
-        //this.isUpdateFailed = true;
+        console.log(err);
       }
     });
 }

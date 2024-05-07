@@ -1,5 +1,5 @@
 const httpStatus = require('http-status');
-const { expense } = require('../models');
+const { Expense } = require('../models');
 const ApiError = require('../utils/ApiError');
 const userService = require('./user.service');
 
@@ -9,7 +9,7 @@ const userService = require('./user.service');
  * @returns {Promise<Expense>}
  */
 const createExpense = async (expenseBody) => {
-  return expense.create(expenseBody);
+  return Expense.create(expenseBody);
 }
 
 /**
@@ -22,7 +22,7 @@ const createExpense = async (expenseBody) => {
  *
  */
 const queryExpenses = async (filter, options) => {
-  const expenses = await expense.paginate(filter, options);
+  const expenses = await Expense.paginate(filter, options);
   return expenses;
 }
 
@@ -39,20 +39,24 @@ const getExpenseTotalByMonth = async (userId, month, year) => {
   if (!userId) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Expense not found');
   }
-  const expenses = await expense.aggregate([
+  const expenses = await Expense.aggregate([
+    {
+      $match: {
+        //userId: userId,
+        date: {
+          $gte: new Date(year, month - 1, 1),
+          $lt: new Date(year, month, 0)
+        }
+      }
+    },
     {
       $group: {
-        _id: {
-          date: {
-            month: { $month: "$date" },
-            year: { $year: "$date" }
-          }
-        },
-        totalExpense: { $sum: "$amount" }
-      },
+        _id: null,
+        totalIncome: { $sum: "$amount" }
+      }
     }
   ]);
-  return expenses;
+  return expenses[0] ? expenses[0].totalIncome : 0;
 }
 
 /**

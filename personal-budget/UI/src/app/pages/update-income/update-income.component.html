@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <h2> Update Income </h2>
+      <h2>Income  Tracer</h2>
       <form [formGroup]="incomeForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="incomeType">Income Type</label>
@@ -49,7 +49,7 @@
           <select class="form-select" formControlName="state" id="state">
             <option selected>Choose...</option>
             @for (state of states; track state.id) {
-              <option value="{{state.id}}">{{state.name}}</option>
+              <option value="{{state.name}}">{{state.name}}</option>
             }
           </select>
         </div>

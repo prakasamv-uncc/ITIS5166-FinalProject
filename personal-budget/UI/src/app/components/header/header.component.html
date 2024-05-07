@@ -1,13 +1,26 @@
 
 <app-timeout-modal></app-timeout-modal>
-<div class="row">
+
   <nav class="navbar navbar-expand navbar-light bg-light">
-    <a href="#" class="navbar-brand">PV Personal Budget</a>
+    <div class="row">
+      <div class="col-3">
+        <div class="content">
+    <H1>PV Personal Budget</H1>
+  </div>
+</div>
+<div class="col-4">
+  <div class="content dis-flex">
     <ul class="navbar-nav mr-auto" >
       <li class="nav-item" >
         <a href="/home" routerLinkActive="active" class="nav-link"  routerLink="home">Home </a>
       </li>
+      @if (isLoggedIn){
+        <li class="nav-item" >
+          <a href="/dashboard" routerLinkActive="active" class="nav-link"  routerLink="dashboard">Dashboard</a>
+        </li>
+      }
     </ul>
+
 
     @if (!isLoggedIn) {
       <ul class="navbar-nav ml-auto">
@@ -19,16 +32,27 @@
         </li>
       </ul>
     }
-    @else {
-      <ul class="navbar-nav mr-auto" >
-        <li class="nav-item" >
+  </div>
+</div>
+<div class="col-4">
+  <div class="content">
+    @if (isLoggedIn){
+      <div class=" row profile">
+        <div class="col-4">
+          <app-header-usr-profile></app-header-usr-profile>
+        </div>
+
+      </div>
+     <!--  <ul class="navbar-nav mr-auto profile" >
+        <li class="nav-item col-6" >
           <app-header-usr-profile></app-header-usr-profile>
         </li>
-        <li class="nav-item" >
+        <li class="nav-item col-3" >
           <a href="javascript:" class="pc-head-link bg-transparent" aria-label="LogOut" (click)="logout()"><i class="ti ti-power text-danger"></i></a>
         </li>
-      </ul>
+      </ul> -->
     }
-  </nav>
-
+  </div>
 </div>
+</div>
+  </nav>

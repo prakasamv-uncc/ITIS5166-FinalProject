@@ -1,14 +1,15 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <form #expenseForm="ngForm" (ngSubmit)="onSubmit(expenseForm)">
+      <h2> Expense  Planner</h2>
+      <form [formGroup]="expenseForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <label for="expenseName">Expense Name</label>
-          <input type="text" class="form-control" id="expenseName" placeholder="Enter expense name">
+          <label for="name">Expense Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter expense name">
         </div>
         <div class="form-group">
-          <label for="expenseAmount">Expense Amount</label>
-          <input type="number" class="form-control" id="expenseAmount" placeholder="Enter expense amount">
+          <label for="amount">Expense Amount</label>
+          <input type="number" class="form-control" formControlName="amount" id="amount" placeholder="Enter expense amount">
         </div>
         <div class="form-group">
           <label for="expenseDate">Expense Date</label>
@@ -20,6 +21,7 @@
                 name="dp"
                 ngbDatepicker
                 #d="ngbDatepicker"
+                formControlName="date"
               />
               <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button">
                 <i class="ti ti-calendar"></i>
@@ -29,23 +31,23 @@
         </div>
         <div class="form-group">
           <label for="expenseCategory">Expense Category</label>
-          <select class="form-select" id="expenseCategory">
+          <select class="form-select" id="category" formControlName="category">
             <option selected>Choose...</option>
             @for (category of expenseCategory; track category.id) {
-              <option value="{{category.id}}">{{category.ename}}</option>
+              <option value="{{category.ename}}">{{category.ename}}</option>
             }
           </select>
         </div>
         <div class="form-group">
           <label for="city">City</label>
-          <input type="text" class="form-control" id="city" placeholder="Enter city">
+          <input type="text" class="form-control" formControlName="city" id="city" placeholder="Enter city">
         </div>
         <div class = "form-group">
           <label for="state">Expense State</label>
-          <select class="form-select" id="state">
+          <select class="form-select" formControlName="state" id="state">
             <option selected>Choose...</option>
             @for (state of states; track state.id) {
-              <option value="{{state.id}}">{{state.name}}</option>
+              <option value="{{state.name}}">{{state.name}}</option>
             }
           </select>
         </div>
