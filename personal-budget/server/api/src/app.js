@@ -42,7 +42,10 @@ app.use(compression());
 app.use(cors({ origin: 'http://localhost:4200', credentials: true }));
 app.use(cors({ origin: 'https://fonts.googleapis.com', credentials: true }));
 app.use(cors({ origin: 'https://fonts.gstatic.com', credentials: true }));
+app.use(cors({ origin: 'http://159.65.239.97',credentials:true}));
+app.options('*', cors());
 
+app.use
 //app.options('*', cors());
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
