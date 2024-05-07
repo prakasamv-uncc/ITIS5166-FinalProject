@@ -50,5 +50,9 @@ isBudgetAdded(): Observable<any> {
 return this.newBudgetAdded.asObservable();
 }
 
+getBudgetByCategory(): Observable<any> {
+return this.http.get(Constants.GET_BUDGET_BY_CATEGORY_API, this.httpOptions);
+}
+
   }
 

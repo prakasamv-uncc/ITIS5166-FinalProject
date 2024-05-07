@@ -47,6 +47,20 @@ const deleteBudget = catchAsync(async (req, res) => {
   res.status(httpStatus.NO_CONTENT).send();
 });
 
+/* const getBudgetsByCategory = catchAsync(async (req, res) => {
+  const filter = pick(req.query, ['category']);
+  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const result = await budgetService.queryBudgetsByCategory(filter, options);
+  res.send(result);
+}); */
+
+const getBudgetsByCategory = catchAsync(async (req, res) => {
+  const filter = pick(req.query, ['category']);
+  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const result = await budgetService.queryBudgetsByCategory(filter, options);
+  res.send(result);
+});
+
 module.exports = {
   createBudget,
   getBudgets,
@@ -54,4 +68,5 @@ module.exports = {
   updateBudget,
   getMonthTotalBudget,
   deleteBudget,
+  getBudgetsByCategory
 };

@@ -8,6 +8,7 @@ export class Constants{
   static readonly GET_INCOME_TOTAL_BY_MONTH_API: string = this.API_URL+'incomes/getMonthTotalIncome/';
   static readonly CREATE_BUDGET_API = this.API_URL+'budgets/create';
   static readonly GET_BUDGET_API = this.API_URL+'budgets/getBudgets';
+  static readonly GET_BUDGET_BY_CATEGORY_API = this.API_URL+'budgets/category';
   static readonly GET_BUDGET_TOTAL_BY_MONTH_API = this.API_URL+'budgets/getMonthTotalBudget/';
   static readonly GET_EXPENSE_API = this.API_URL+'expenses/getExpenses';
   static readonly CREATE_EXPENSE_API = this.API_URL+'expenses/create';

@@ -12,6 +12,28 @@ const createBudget = async (budgetBody) => {
   return Budget.create(budgetBody);
 };
 
+/**
+ * query for budgets by category
+ *
+ * @param {ObjectId} user
+ * @param {string} category
+ * @param {Object} options
+ * @returns {Promise<QueryResult>}
+ */
+const queryBudgetsByCategory = async (user, category, options) => {
+  await userService.getUserById(user, options);
+  //const filter = { user, category };
+  const budgets = await Budget.paginate(filter, options);
+  return budgets;
+}
+
+
+/**
+ * Get total budget for a month
+ * @param {number} year
+ * @param {number} month
+ * @returns {Promise<number>}
+ */
 const getMonthTotalBudget = async (year, month) => {
   const budgets = await Budget.aggregate([
     {
@@ -31,6 +53,13 @@ const getMonthTotalBudget = async (year, month) => {
   ]);
   return budgets[0] ? budgets[0].totalBudget : 0;
 }
+
+/* const queryBudgetsByCategory = async (user, category, options) => {
+  await userService.getUserById(user, options);
+  const filter = { user, category };
+  const budgets = await Budget.paginate(filter, options);
+  return budgets;
+}; */
 
 /**
  * Query for budgets
@@ -94,4 +123,5 @@ module.exports = {
   getBudgetById,
   updateBudgetById,
   deleteBudgetById,
+  queryBudgetsByCategory,
 };
