@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/components/charts/expenses-by-category/expenses-by-category.component.scss"],
+  "sourcesContent": ["\r\n.widget {\r\n  margin: 0 auto;\r\n  width:350px;\r\n  margin-top:50px;\r\n  background-color: #222D3A;\r\n  border-radius: 5px;\r\n  box-shadow: 0px 0px 1px 0px #06060d;\r\n\r\n}\r\n\r\n.header{\r\n  background-color: #29384D;\r\n  height:40px;\r\n  color:#929DAF;\r\n  text-align: center;\r\n  line-height: 40px;\r\n  border-top-left-radius: 7px;\r\n  border-top-right-radius: 7px;\r\n  font-weight: 400;\r\n  font-size: 1.5em;\r\n  text-shadow: 1px 1px #06060d;\r\n}\r\n\r\n.chart-container{\r\n  padding:25px;\r\n}\r\n\r\n.shadow {\r\n  -webkit-filter: drop-shadow( 0px 3px 3px rgba(0,0,0,.5) );\r\n  filter: drop-shadow( 0px 3px 3px rgba(0,0,0,.5) );\r\n}\r\n"],
+  "mappings": ";AACA,CAAA;AACE,UAAA,EAAA;AACA,SAAA;AACA,cAAA;AACA,oBAAA;AACA,iBAAA;AACA,cAAA,IAAA,IAAA,IAAA,IAAA;;AAIF,CAAA;AACE,oBAAA;AACA,UAAA;AACA,SAAA;AACA,cAAA;AACA,eAAA;AACA,0BAAA;AACA,2BAAA;AACA,eAAA;AACA,aAAA;AACA,eAAA,IAAA,IAAA;;AAGF,CAAA;AACE,WAAA;;AAGF,CAAA;AACE,kBAAA,YAAA,IAAA,IAAA,IAAA,KAAA,CAAA,EAAA,CAAA,EAAA,CAAA,EAAA;AACA,UAAA,YAAA,IAAA,IAAA,IAAA,KAAA,CAAA,EAAA,CAAA,EAAA,CAAA,EAAA;;",
+  "names": []
+}

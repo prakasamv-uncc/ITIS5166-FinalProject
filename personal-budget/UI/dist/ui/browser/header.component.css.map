@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/components/header/header.component.scss"],
+  "sourcesContent": ["/* @use \"./../../../styles\"; */\r\n\r\n\r\nnav {\r\n  margin:  0 12px;\r\n  padding: 0 24px;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  background-color: linear-gradient(to top, #1d1a1a 0%, rgba(0, 0, 0, 0.35) 99%, rgba(12, 12, 12, 0.5) 100%);\r\n  box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);\r\n  .active {\r\n  color: #000000e6;\r\n  font-weight: bold;\r\n  border-bottom: solid 2px #000000e6;\r\n}\r\n.row {\r\n   width: 100%;\r\n  padding: 5px;;\r\n\r\n   .dis-flex {\r\n     display: flex;\r\n\r\n     width: 100%;\r\n   }\r\n\r\n   .profile{\r\n    flex-direction: row-reverse;\r\n    align-items: center;\r\n   }\r\n}\r\n\r\n}\r\n\r\n"],
+  "mappings": ";AAGA;AACE,UAAA,EAAA;AACA,WAAA,EAAA;AACA,WAAA;AACA,mBAAA;AACA;IAAA;MAAA,GAAA,GAAA;MAAA,QAAA,EAAA;MAAA,KAAA,CAAA,EAAA,CAAA,EAAA,CAAA,EAAA,MAAA,GAAA;MAAA,KAAA,EAAA,EAAA,EAAA,EAAA,EAAA,EAAA,KAAA;AACA,cAAA,EAAA,EAAA,KAAA,IAAA,KAAA,CAAA,EAAA,CAAA,EAAA,CAAA,EAAA;;AACA,IAAA,CAAA;AACA,SAAA,KAAA,CAAA,EAAA,CAAA,EAAA,CAAA,EAAA;AACA,eAAA;AACA,iBAAA,MAAA,IAAA,KAAA,CAAA,EAAA,CAAA,EAAA,CAAA,EAAA;;AAEF,IAAA,CAAA;AACG,SAAA;AACD,WAAA;;AAEC,IAAA,CAJH,IAIG,CAAA;AACE,WAAA;AAEA,SAAA;;AAGF,IAAA,CAVH,IAUG,CAAA;AACC,kBAAA;AACA,eAAA;;",
+  "names": []
+}
