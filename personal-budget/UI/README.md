@@ -1,65 +1,180 @@
-/**
- * @file README.md
- * @description User Interface (UI) documentation for the Personal Budget project.
- * 
- * This project was generated with Angular CLI version 17.1.0.
- * 
- * @see {@link https://github.com/angular/angular-cli} for more information about Angular CLI.
- * 
- * @section Development server
- * 
- * Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
- * 
- * @section Code scaffolding
- * 
- * Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
- * 
- * @section Build
- * 
- * Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
- * 
- * @section Running unit tests
- * 
- * Run `ng test` to execute the unit tests via Karma. 
- * 
- * @see {@link https://karma-runner.github.io} for more information about Karma.
- * 
- * @section Running end-to-end tests
- * 
- * Run `npm run cypress:open` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
- * 
- * @section Further help
- * 
- * To get more help on the Angular CLI use `ng help` or go check out the Angular CLI Overview and Command Reference page at {@link https://angular.io/cli}.
- */
-# UI
+# Final Project: 202410-Spring 2024-ITIS-5166-051:ITIS-5166-081_Combined-Network-based Application Development - Personal Budget Planner
+# Personal Budget Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0.
+This is a full-stack web application for managing personal budgets. The application is built using Angular 17 on the frontend, Node.js and Express on the backend, and MongoDB as the database. It includes Cypress for end-to-end testing and Karma for unit testing.
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Development](#development)
+  - [Running the Backend](#running-the-backend)
+  - [Running the Frontend](#running-the-frontend)
+- [Testing](#testing)
+  - [End-to-End Testing](#end-to-end-testing)
+  - [Unit Testing](#unit-testing)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Prerequisites
 
-## Build
+- Node.js and npm installed globally on your machine
+- MongoDB installed and running locally Compass or on a remote Cloud server
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Installation
 
-## Running unit tests
+1. Clone the repository: 
+ ```bash 
+  git clone https://github.com/prakasamv-uncc/ITIS5166-FinalProject.git
+```
+2. cd ITIS5166-FinalProject,  UI for Angular Code repo, Server for Node Code repo application 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Run npm install to install dependencies.
 
-## Running end-to-end tests
+4. Set up the CONFIGURATION at .env file.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+5. Add .env file into .gitIgnore to secure your database credentials.
+
+## Technologies Used:
+
+- Angular 17
+
+- Node JS
+
+- Express JS
+
+- MongoDB 
+
+- Mongo Compass
+
+- Karma - Jasmine 
+
+- Cypress 
+
+## Features
+
+- **Basic** Authentication (Register/Login with hashed password)
+- **Authentication and authorization**: using [passport](http://www.passportjs.org)
+- **JWT Tokens**, make requests with a token after login with Authorization header with value Bearer yourToken where yourToken will be returned in Login response.
+- **Validation**: request data validation using [Joi](https://github.com/hapijs/joi)
+- **API documentation**: with [swagger-jsdoc]
+- **Process management**: advanced production process management using [PM2](https://pm2.keymetrics.io)
+- **Dependency management**: with [Yarn](https://yarnpkg.com)
+- **Environment variables**: using [dotenv](https://github.com/motdotla/dotenv)
+- **Santizing**: sanitize request data against xss and query injection
+- **CORS**: Cross-Origin Resource-Sharing enabled using [cors](https://github.com/expressjs/cors)
+- **Pre-defined** response structures with proper status codes.
+- **Swagger** Included API collection below **API Documentation**
+- **Test cases** with Jasmine/Karma and Cypress Applitools
 
 
+
+## Frontend Application
+ simply run:
+ ```bash
+ npm install 
+``` 
+
+## Manual Installation
+
+If you would still prefer to do the installation manually, follow these steps:
+
+Clone the repo:
+
+```bash
+git clone https://github.com/prakasamv-uncc/ITIS5166-FinalProject
+cd personal-budget
+cd server //server application 
+npm i
+npm run dev 
+cd UI //Angular application 
+npm i 
+ng serve 
+```
+# Run all Unit tests
+ng test
+
+# E2E App Cypress 
+npm install cypress –save-dev
+
+npm add cypress --dev
+
+# Open Cypress Window
+node ./node_modules/cypress/bin/cypress open
+or 
+npx cypress open
+
+## Environment Variables
+
+The environment variables can be found and modified in the `.env` file. They come with these default values:
+
+```bash
+# Port number
+PORT=3000
+
+# URL of the Mongo DB
+MONGODB_URL=mongodb://127.0.0.1:27017/pv-personal-budget
+
+# JWT
+# JWT secret key
+JWT_SECRET=thisisasamplesecret
+# Number of minutes after which an access token expires
+JWT_ACCESS_EXPIRATION_MINUTES=30
+# Number of days after which a refresh token expires
+JWT_REFRESH_EXPIRATION_DAYS=30
+
+# SMTP configuration options for the email service
+# For testing, you can use a fake SMTP service like Ethereal: https://ethereal.email/create
+SMTP_HOST=email-server
+SMTP_PORT=587
+SMTP_USERNAME=email-server-username
+SMTP_PASSWORD=email-server-password
+EMAIL_FROM=support@yourapp.com
+```
+
+## Project Structure
+
+```
+server\src\
+ |--config\         # Environment variables and configuration related things
+ |--controllers\    # Route controllers (controller layer)
+ |--docs\           # Swagger files
+ |--middlewares\    # Custom express middlewares
+ |--models\         # Mongoose models (data layer)
+ |--routes\         # Routes
+ |--services\       # Business logic (service layer)
+ |--utils\          # Utility classes and functions
+ |--validations\    # Request data validation schemas
+ |--app.js          # Express app
+ |--index.js        # App entry point
+```
+
+```
+UI\src\
+ |--app\                # App root (Routes)
+      |--components\    # Custom Components
+      |--guard\         # Auth guard for routing 
+      |--pages\         # Application page
+      |--services\      # Business logic (service layer)
+ |--assets\             # Application assets files(Images and themes )
+ |--scss\               # Custom express middlewares
+ |--app-routing.module.ts        
+ |--app.component.html
+ |--app.component.scss
+ |--app.component.ts   # App entry point
+ |--app.module.ts
+```
 ## API Documentation
-The application provides the following endpoints:
 
+To view the list of available APIs and their specifications, run the server and go to `http://localhost:3000/v1/docs` in your browser. This documentation page is automatically generated using the [swagger](https://swagger.io/) definitions written as comments in the route files.
+
+### API Endpoints
+
+List of available routes:
 # Auth
 POST /v1/auth/register: Register as user
 POST /v1/auth/login: Login
@@ -104,14 +219,178 @@ PATCH /users/{id}: Update a user
 DELETE /users/{id}: Delete a user
 
 
-## Running the tests
+## Error Handling
 
-## Cypress E2E (Applitools)
-** Install Cypress
-Install Cypress:
+The app has a centralized error handling mechanism.
 
-Explain how to run the automated tests for this system.
+Controllers should try to catch the errors and forward them to the error handling middleware (by calling `next(error)`). For convenience, you can also wrap the controller inside the catchAsync utility wrapper, which forwards the error.
 
-## Further help
+```javascript
+const catchAsync = require('../utils/catchAsync');
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+const controller = catchAsync(async (req, res) => {
+  // this error will be forwarded to the error handling middleware
+  throw new Error('Something wrong happened');
+});
+```
+
+The error handling middleware sends an error response, which has the following format:
+
+```json
+{
+  "code": 404,
+  "message": "Not found"
+}
+```
+
+When running in development mode, the error response also contains the error stack.
+
+The app has a utility ApiError class to which you can attach a response code and a message, and then throw it from anywhere (catchAsync will catch it).
+
+For example, if you are trying to get a user from the DB who is not found, and you want to send a 404 error, the code should look something like:
+
+```javascript
+const httpStatus = require('http-status');
+const ApiError = require('../utils/ApiError');
+const User = require('../models/User');
+
+const getUser = async (userId) => {
+  const user = await User.findById(userId);
+  if (!user) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
+  }
+};
+```
+
+## Validation
+
+Request data is validated using [Joi](https://joi.dev/). Check the [documentation](https://joi.dev/api/) for more details on how to write Joi validation schemas.
+
+The validation schemas are defined in the `src/validations` directory and are used in the routes by providing them as parameters to the `validate` middleware.
+
+```javascript
+const express = require('express');
+const validate = require('../../middlewares/validate');
+const userValidation = require('../../validations/user.validation');
+const userController = require('../../controllers/user.controller');
+
+const router = express.Router();
+
+router.post('/users', validate(userValidation.createUser), userController.createUser);
+```
+
+## Authentication
+
+To require authentication for certain routes, you can use the `auth` middleware.
+
+```javascript
+const express = require('express');
+const auth = require('../../middlewares/auth');
+const userController = require('../../controllers/user.controller');
+
+const router = express.Router();
+
+router.post('/users', auth(), userController.createUser);
+```
+
+These routes require a valid JWT access token in the Authorization request header using the Bearer schema. If the request does not contain a valid access token, an Unauthorized (401) error is thrown.
+
+**Generating Access Tokens**:
+
+An access token can be generated by making a successful call to the register (`POST /v1/auth/register`) or login (`POST /v1/auth/login`) endpoints. The response of these endpoints also contains refresh tokens (explained below).
+
+An access token is valid for 30 minutes. You can modify this expiration time by changing the `JWT_ACCESS_EXPIRATION_MINUTES` environment variable in the .env file.
+
+**Refreshing Access Tokens**:
+
+After the access token expires, a new access token can be generated, by making a call to the refresh token endpoint (`POST /v1/auth/refresh-tokens`) and sending along a valid refresh token in the request body. This call returns a new access token and a new refresh token.
+
+A refresh token is valid for 30 days. You can modify this expiration time by changing the `JWT_REFRESH_EXPIRATION_DAYS` environment variable in the .env file.
+
+## Authorization
+
+The `auth` middleware can also be used to require certain rights/permissions to access a route.
+
+```javascript
+const express = require('express');
+const auth = require('../../middlewares/auth');
+const userController = require('../../controllers/user.controller');
+
+const router = express.Router();
+
+router.post('/users', auth('manageUsers'), userController.createUser);
+```
+
+In the example above, an authenticated user can access this route only if that user has the `manageUsers` permission.
+
+The permissions are role-based. You can view the permissions/rights of each role in the `src/config/roles.js` file.
+
+If the user making the request does not have the required permissions to access this route, a Forbidden (403) error is thrown. 
+
+## Custom Mongoose Plugins
+
+The app also contains 2 custom mongoose plugins that you can attach to any mongoose model schema. You can find the plugins in `src/models/plugins`.
+
+```javascript
+const mongoose = require('mongoose');
+const { toJSON, paginate } = require('./plugins');
+
+const userSchema = mongoose.Schema(
+  {
+    /* schema definition here */
+  },
+  { timestamps: true }
+);
+
+userSchema.plugin(toJSON);
+userSchema.plugin(paginate);
+
+const User = mongoose.model('User', userSchema);
+```
+
+### toJSON
+
+The toJSON plugin applies the following changes in the toJSON transform call:
+
+- removes \_\_v, createdAt, updatedAt, and any schema path that has private: true
+- replaces \_id with id
+
+### Paginate Plugin 
+
+The paginate plugin adds the `paginate` static method to the mongoose schema.
+
+Adding this plugin to the `User` model schema will allow you to do the following:
+
+```javascript
+const queryUsers = async (filter, options) => {
+  const users = await User.paginate(filter, options);
+  return users;
+};
+```
+
+The `filter` param is a regular mongo filter.
+
+The `options` param can have the following (optional) fields:
+
+```javascript
+const options = {
+  sortBy: 'name:desc', // sort order
+  limit: 5, // maximum results per page
+  page: 2, // page number
+};
+```
+The plugin also supports sorting by multiple criteria (separated by a comma): `sortBy: name:desc,role:asc` 
+
+The `paginate` method returns a Promise, which fulfills with an object having the following properties:
+
+```json
+{
+  "results": [],
+  "page": 2,
+  "limit": 5,
+  "totalPages": 10,
+  "totalResults": 48
+}
+```
+### About Me
+Prakasam Venkatachalam@prakasamv-uncc 
