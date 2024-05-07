@@ -98,6 +98,8 @@ ng serve
 # Run all Unit tests
 ng test
 
+![Karma](https://github.com/prakasamv-uncc/ITIS5166-FinalProject/assets/156151853/4be31b37-6c91-4ab9-a033-76bf606f03a8)
+
 # E2E App Cypress 
 npm install cypress –save-dev
 
@@ -107,7 +109,7 @@ npm add cypress --dev
 node ./node_modules/cypress/bin/cypress open
 or 
 npx cypress open
-
+https://github.com/prakasamv-uncc/ITIS5166-FinalProject/assets/156151853/63dc52ef-32ea-4636-b39e-fd037395f5dc
 ## Environment Variables
 
 The environment variables can be found and modified in the `.env` file. They come with these default values:
@@ -171,6 +173,9 @@ UI\src\
 ## API Documentation
 
 To view the list of available APIs and their specifications, run the server and go to `http://localhost:3000/v1/docs` in your browser. This documentation page is automatically generated using the [swagger](https://swagger.io/) definitions written as comments in the route files.
+[Swagger UI.pdf](https://github.com/prakasamv-uncc/ITIS5166-FinalProject/files/15229665/Swagger.UI.pdf)
+
+![Swagger](https://github.com/prakasamv-uncc/ITIS5166-FinalProject/assets/156151853/ddc080b2-c847-437e-a08c-cc44710aeb2d)
 
 ### API Endpoints
 
