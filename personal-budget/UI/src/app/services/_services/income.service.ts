@@ -15,7 +15,7 @@ export class IncomeService {
   constructor(private http: HttpClient, private storageService:StorageService) {
     const user = this.storageService.getUser();
     this.httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'authorization':'Bearer '+ user?.tokens?.access?.token})
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'authorization':'Bearer '+ user?.tokens?.access?.token, withCredentials: 'true'})
     };
   }
   isNewIncomeAdded$ = this.newIncomeAdded.asObservable();
@@ -27,7 +27,7 @@ export class IncomeService {
   setHeaderOptions(){
     const user = this.storageService.getUser();
     this.httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'authorization':'Bearer '+ user?.tokens?.access?.token})
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'authorization':'Bearer '+ user?.tokens?.access?.token, withCredentials: 'true'})
     };
   }
 

@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { any } from 'cypress/types/bluebird';
-
-const AUTH_API = 'http://localhost:3000/v1/auth/';
-
+import { Constants } from '../_shared/constants';
+//const AUTH_API = 'http://localhost:3000/v1/auth/';
+const AUTH_API = Constants.API_URL+Constants.AUTH_API;
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json', withCredentials: 'true'})
 };
 
 @Injectable({

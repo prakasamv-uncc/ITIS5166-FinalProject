@@ -13,7 +13,8 @@ private newBudgetAdded = new BehaviorSubject<boolean>(false);
 constructor(private http: HttpClient, private storageService:StorageService) {
 const user = this.storageService.getUser();
 this.httpOptions = {
-headers: new HttpHeaders({ 'Content-Type': 'application/json', 'authorization':'Bearer '+ user?.tokens?.access?.token})
+
+headers: new HttpHeaders({ 'Content-Type': 'application/json', 'authorization':'Bearer '+ user?.tokens?.access?.token, withCredentials: 'true'})
 };
 }
 isNewBudgetAdded$ = this.newBudgetAdded.asObservable();
@@ -53,7 +54,7 @@ return this.newBudgetAdded.asObservable();
 getBudgetByCategory(): Observable<any> {
   const user = this.storageService.getUser();
 /*   this.httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'authorization':'Bearer '+ user?.tokens?.access?.token})
+    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'authorization':'Bearer '+ user?.tokens?.access?.token, withCredentials: 'true'})
   }; */
   //const userData = {userId:this.storageService.getUser()};
   const bodyData = { userId: this.storageService.getUser().user.name }; // Replace with your actual data

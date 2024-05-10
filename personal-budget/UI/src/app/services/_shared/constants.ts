@@ -1,7 +1,8 @@
 export class Constants{
 
-  static readonly API_URL = 'http://localhost:3000/v1/';
-  static readonly AUTH_API = '/auth/';
+  static readonly API_URL = 'http://147.182.136.140:3000/v1/';
+  //'http:///* localhost:3000 *//v1/';
+  static readonly AUTH_API = 'auth/';
   static readonly GET_INCOMPLETE_ONBOARDING_API = this.API_URL+'incomplete-onboarding/getIncompleteOnboarding';
   static readonly INCOME_API = this.API_URL+'incomes/create';
   static readonly GET_INCOME_API = this.API_URL+'incomes/getIncomes';

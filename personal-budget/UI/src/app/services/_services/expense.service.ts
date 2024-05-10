@@ -13,7 +13,7 @@ export class ExpenseService {
   constructor(private http: HttpClient, private storageService:StorageService) {
     const user = this.storageService.getUser();
     this.httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'authorization':'Bearer '+ user?.tokens?.access?.token})
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'authorization':'Bearer '+ user?.tokens?.access?.token, withCredentials: 'true'})
     };
   }
   isNewExpenseAdded$ = this.newExpenseAdded.asObservable();
@@ -41,7 +41,7 @@ export class ExpenseService {
 
       return this.http.get(Constants.GET_EXPENSE_BY_USER_API+user.user.id, this.httpOptions);
     }
-    
+
 
   addExpense(expense: any): Observable<any> {
     expense.user = this.storageService.getUser().user.name;
