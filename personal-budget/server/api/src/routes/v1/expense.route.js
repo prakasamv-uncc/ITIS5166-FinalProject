@@ -15,6 +15,7 @@ router
 router.post('/create', jwtMW, expenseController.createExpense);
 router.get('/getExpenses', jwtMW, expenseController.getExpenses);
 router.post('/getMonthTotalExpense/:year/:month', jwtMW, expenseController.getMonthTotalExpense);
+router.post('/getExpensesByUser', jwtMW, expenseController.getExpenseByUser);
 /* router
   .route('/:expenseId')
   //.get(auth('getExpenses'), validate(expenseValidation.getExpense), expenseController.getExpense)
@@ -69,7 +70,7 @@ module.exports = router;
 
 /**
  * @swagger
- * URLs: http://localhost:3000/api/v1/expenses
+ * URLs: http://159.65.239.97:3000/api/v1/expenses
  * /v1/expenses:
  *  post:
  *    summary: Create a new expense

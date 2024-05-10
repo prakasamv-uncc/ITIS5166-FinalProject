@@ -51,7 +51,17 @@ return this.newBudgetAdded.asObservable();
 }
 
 getBudgetByCategory(): Observable<any> {
-return this.http.get(Constants.GET_BUDGET_BY_CATEGORY_API, this.httpOptions);
+  const user = this.storageService.getUser();
+/*   this.httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'authorization':'Bearer '+ user?.tokens?.access?.token})
+  }; */
+  //const userData = {userId:this.storageService.getUser()};
+  const bodyData = { userId: this.storageService.getUser().user.name }; // Replace with your actual data
+return this.http.post(Constants.GET_BUDGET_BY_MONTH_API,bodyData, this.httpOptions);
+}
+
+getBudgetByMonth(): Observable<any> {
+return this.http.get(Constants.GET_BUDGET_BY_MONTH_API, this.httpOptions);
 }
 
   }

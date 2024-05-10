@@ -35,6 +35,14 @@ export class ExpenseService {
       return this.http.post(Constants.GET_EXPENSE_TOTAL_BY_MONTH_API+'year='+range.year+'/month='+range.month,expense, this.httpOptions);
     }
 
+
+    getExpenseByUser(): Observable<any> {
+      const user = this.storageService.getUser();
+
+      return this.http.get(Constants.GET_EXPENSE_BY_USER_API+user.user.id, this.httpOptions);
+    }
+    
+
   addExpense(expense: any): Observable<any> {
     expense.user = this.storageService.getUser().user.name;
     expense.userId = this.storageService.getUser().user.id;

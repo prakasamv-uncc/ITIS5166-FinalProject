@@ -77,15 +77,26 @@ export class DashboardComponent implements OnInit {
       }, 1000);
     });
 
-    this.getBudgetByCategory();
+    this.getBudgetByMonth();
+
+    this.getMonthExpenseUser();
 
   }
 
-  getBudgetByCategory() {
+  getBudgetByMonth() {
+
     this.budgetService.getBudgetByCategory().subscribe((data) => {
       console.log(data);
       //this.totalMonthlyBudget = data?.totalBudget;
 
+    });
+  }
+
+
+  getMonthExpenseUser(){
+    this.expenseService.getExpenseByUser().subscribe((data) => {
+      console.log(data);
+      //his.totalMonthlyExpense = data?.totalExpense;
     });
   }
 

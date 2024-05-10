@@ -28,6 +28,14 @@ const getBudget = catchAsync(async (req, res) => {
   res.send(budget);
 });
 
+const getCatagoryByMonth = catchAsync(async (req, res) => {
+  const budget = await budgetService.getCurrentMonthBudget(req.params.userId);
+  if (!budget) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Budget not found');
+  }
+  res.send(budget);
+});
+
 
 const getMonthTotalBudget = catchAsync(async (req, res) => {
   const budget = await budgetService.getMonthTotalBudget(req.params.year, req.params.month);
@@ -54,11 +62,14 @@ const deleteBudget = catchAsync(async (req, res) => {
   res.send(result);
 }); */
 
-const getBudgetsByCategory = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ['category']);
+const getBudgetsByMonth = catchAsync(async (req, res) => {
+/*   const filter = pick(req.query, ['category']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
   const result = await budgetService.queryBudgetsByCategory(filter, options);
-  res.send(result);
+  res.send(result); */
+  const userId = req.params.userId;
+  const budget = await budgetService.getCurrentMonthBudget(userId)
+
 });
 
 module.exports = {
@@ -68,5 +79,5 @@ module.exports = {
   updateBudget,
   getMonthTotalBudget,
   deleteBudget,
-  getBudgetsByCategory
+  getCatagoryByMonth
 };

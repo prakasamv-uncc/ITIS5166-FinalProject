@@ -12,6 +12,27 @@ const createBudget = async (budgetBody) => {
   return Budget.create(budgetBody);
 };
 
+const getCurrentMonthBudget = async (userId) => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  const filter = {
+    /* user: userId, */
+    date: {
+      $gte: new Date(year, month, 1),
+      $lt: new Date(year, month + 1, 1)
+    }
+  };
+  const budgets = await Budget.find(filter);
+  return budgets;
+}
+
+const getCatagoryByMonth = async (userId, year, month) => {
+  const filter = { user: userId, date: { $gte: new Date(year, month - 1, 1), $lt: new Date(year, month, 0) } };
+  const budgets = await Budget.find(filter);
+  return budgets;
+}
+
 /**
  * query for budgets by category
  *
@@ -124,4 +145,5 @@ module.exports = {
   updateBudgetById,
   deleteBudgetById,
   queryBudgetsByCategory,
+  getCurrentMonthBudget
 };

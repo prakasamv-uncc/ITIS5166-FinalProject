@@ -14,7 +14,7 @@ router
 
 router.post('/create', jwtMW, budgetController.createBudget);
 router.get('/getBudgets', jwtMW, budgetController.getBudgets);
-router.get('/category', jwtMW, budgetController.getBudgetsByCategory);
+router.post('/getBudgetsByUser', jwtMW, budgetController.getCatagoryByMonth);
 router.post('/getMonthTotalBudget/:year/:month', jwtMW, budgetController.getMonthTotalBudget);
 router
   .route('/:budgetId')

@@ -23,6 +23,16 @@ const getExpenses = catchAsync(async (req, res) => {
 }
 );
 
+
+const getExpenseByUser = catchAsync(async (req, res) => {
+  const expense = await expenseService.getExpenseByUserId(req.params.userId);
+  if (!expense) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Expense not found');
+  }
+  res.send(expense);
+}
+);
+
 const getExpense = catchAsync(async (req, res) => {
   const expense = await expenseService.getExpenseByUserId(req.params.userId);
   if (!expense) {
@@ -60,4 +70,5 @@ module.exports = {
   updateExpense,
   getMonthTotalExpense,
   deleteExpense,
+  getExpenseByUser
 };

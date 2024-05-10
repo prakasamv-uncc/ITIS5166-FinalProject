@@ -40,7 +40,7 @@ export class UpdateBudgetComponent {
   constructor(private budgetService: BudgetService) {
     this.states = Constants.USA_STATES;
     this.budgetForm = new FormGroup({
-      budgetType: new FormControl('', Validators.required),
+      name: new FormControl('', Validators.required),
       category: new FormControl('', Validators.required),
       country: new FormControl('', Validators.required),
       state: new FormControl('', [Validators.required, Validators.nullValidator]),
@@ -55,6 +55,7 @@ export class UpdateBudgetComponent {
     const selectedDate = new Date(this.budgetForm.value.date.year, this.budgetForm.value.date.month - 1, this.budgetForm.value.date.day);
     console.log(selectedDate);
     const currentBudget = {
+      "name": this.budgetForm.value.name,
       "category": this.budgetForm.value.category,
       "amount": this.budgetForm.value.amount,
       "description": this.budgetForm.value.description,

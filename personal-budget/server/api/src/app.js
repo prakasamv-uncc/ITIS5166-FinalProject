@@ -37,20 +37,14 @@ app.use(mongoSanitize());
 // gzip compression
 app.use(compression());
 
-// enable cors
-//app.use(cors());
-app.use(cors({ origin: 'http://localhost:4200', credentials: true }));
-app.use(cors({ origin: 'https://fonts.googleapis.com', credentials: true }));
-app.use(cors({ origin: 'https://fonts.gstatic.com', credentials: true }));
-app.use(cors({ origin: 'http://159.65.239.97',credentials:true}));
-app.options('*', cors());
+// Set up CORS options
+const corsOptions = {
+  origin: 'http://localhost:4200', // Allow requests from this origin
+  credentials: true, // Allow credentials (e.g., cookies, authorization headers)
+};
 
-app.use
-//app.options('*', cors());
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  next();
-});
+// Use CORS middleware with options
+app.use(cors(corsOptions));
 
 // jwt authentication
 app.use(passport.initialize());

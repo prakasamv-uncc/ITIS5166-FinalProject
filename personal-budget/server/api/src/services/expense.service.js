@@ -35,7 +35,10 @@ const getExpenseByUserId = async (userId) => {
   return expense.find({ userId: userId });
 }
 
-const getExpenseTotalByMonth = async (userId, month, year) => {
+const getExpenseTotalByMonth = async (userId) => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth();
   if (!userId) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Expense not found');
   }

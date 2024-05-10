@@ -9,7 +9,7 @@ const budgetSchema = mongoose.Schema(
       ref: 'User',
       required: true,
     },
-    budgetType: {
+    name: {
       type: String,
       required: true,
       trim: true,
