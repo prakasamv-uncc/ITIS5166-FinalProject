@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/components/registration-stepper/registration-stepper.component.scss"],
-  "sourcesContent": ["h2 {\r\n  font-size: 1.5rem;\r\n  margin: auto 0;\r\n  padding: 1rem;\r\n  text-align: center;\r\n}\r\n.form-container {\r\n  display: grid;\r\n  grid-template-rows: auto auto; /* Two rows: one for label, one for input */\r\n  gap: 10px; /* Adjust the gap as needed */\r\n}\r\n\r\n.form-group {\r\n  button {\r\n    float: right;\r\n  }\r\n}\r\n\r\n"],
-  "mappings": ";AAAA;AACE,aAAA;AACA,UAAA,KAAA;AACA,WAAA;AACA,cAAA;;AAEF,CAAA;AACE,WAAA;AACA,sBAAA,KAAA;AACA,OAAA;;AAIA,CAAA,WAAA;AACE,SAAA;;",
-  "names": []
-}

@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/components/sidebar/sidebar.component.scss"],
-  "sourcesContent": ["@media only screen and (max-width: 767px) {\r\n  .sidebar {\r\n    display: none;\r\n  }\r\n}\r\n"],
-  "mappings": ";AAAA,OAAA,KAAA,OAAA,IAAA,CAAA,SAAA,EAAA;AACE,GAAA;AACE,aAAA;;;",
-  "names": []
-}
